@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/sunny/jquery-ui.css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(()=>{
+            $('#sign_button').button();
+            $('#login').button();
+            $('#menu').menu();
+            $('#tabs-1').tabs();
+            $.validator.addMethod('customEmailValidator',(value,element)=>{
+        let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        let isValid = regex.test(value);
+        return isValid; 
+    });
+        $.validator.addMethod('customPasswordValidator',(value,element)=>{
+            let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+            let isValid = regex.test(value);
+            return isValid;
+        })
+    // validate the form
+    $('#sign_button').click(()=>{
+        $('#sign_form').validate({
+            rules:{
+                name: 'required',
+                email: {
+                    required: true,
+                    customEmailValidator: true
+                },
+                phone: {
+                    required: true,
+                    min: 4000000001,
+                    max: 9999999999
+                },
+                password:{
+                    required: true,
+                    customPasswordValidator: true
+                }
+            },
+            messages:{
+                name : 'Name cannot be left blank',
+                email: {
+                    required: 'Email cannot be left blank',
+                    customEmailValidator: 'Please re-enter a valid email in form yourname@gg.com'
+                },
+                phone: {
+                    required: 'Phone cannot be left blank',
+                    min: 'Phone number cannot be less than 4000000001',
+                    max: 'Phone number cannot be greater than 9999999999'
+                },
+                password:{
+                    required:'password required',
+                    customPasswordValidator: ' passord should contain 1. capital letter  2. small letter  3. symbol  4. a number'
+                }
+            }
+        });
+    });
+
+    $('#login').click(()=>{
+        let name = $('#login-name').val();
+        let password = $('#login-password').val();
+        if (name=='admin'&& password=='admin'){
+            document.location= 'list.html?set=1';
+        }
+        else{
+            alert("wrong credentials!")
+        }
+    });
+        });
+    </script>
+ </head>
+<body>
+        <ul id="menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="">BLOG</a></li>
+                <li><a href="">MENU</a></li>
+        </ul>
+        <div id="tabs-1">  
+                <ul>  
+                   <li><a href="#tabs-2">sign up</a></li>  
+                   <li><a href="#tabs-3">log in</a></li>   
+                </ul>  
+             <div id="tabs-2">  
+                    <form action="" id="sign_form">
+                            enter your name 
+                            <input type="text" id="name" name="name"><br>
+                            enter email
+                            <input type="text" id="email" name="email"><br>
+                            enter phone number
+                            <input type="number" id="phone" name="phone"><br>
+                            enter password
+                            <input type="password" id="password" name="password"><br>
+                            confirm password
+                            <input type="password" id="cpassword"><br>
+                            <input type="submit" value="sign up" id="sign_button">
+                        </form>
+            </div>  
+            <div id="tabs-3">  
+                    enter your name 
+                    <input type="text" id="login-name"><br>
+                    enter password
+                    <input type="password" id="login-password"><br>
+                    <input type="button" value="login" id="login">
+        
+            </div>
+            </div> 
+            
+        
+            
+</body>   

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>timetable management system</title>
+    <script src="timetable.js"></script>
+    <style>
+        #details{
+            float: left;
+            padding: 10px;
+            margin: 30px;
+        }
+        #classroom{
+            border: 2px solid black;
+            margin: 0 auto;
+            width: 600px;
+            height: 550px;
+            float: left;
+        }
+        #period{
+            display: inline-block;
+            border: 1px solid black;
+            margin: 10px;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="details">
+    <h2>enter trainer credentials: </h2><br>
+    <input type="text" placeholder="enter your name" id="name">
+    <input type="text" placeholder="enter your address" id="address"><br><br>
+    enter the subject of teaching <br>
+    <input type="checkbox" value="mathematics" name="_check" > Mathematics <br>
+    <input type="checkbox" value="english" name="_check" > English <br>
+    <input type="checkbox" value="physics" name="_check" > physics <br>
+    <input type="checkbox" value="chemistry" name="_check" > chemistry <br>
+    <input type="checkbox" value="hindi" name="_check" > Hindi <br>
+    <input type="checkbox" value="computer science" name="_check" > Computer science <br>
+    <input type="button" onclick="saveTrainer()" value="save">
+</div>
+
+
+    <div id='classroom'>
+        <select  id="selectClass" onchange="display()" >
+                <option value=" ">--select class--</option>
+                <option value="classA">class A</option>
+                <option value="classB">class B</option>
+        </select> 
+        <div id = 'class1' style="display: none;">
+                <div id='period'> 
+                    <h3>10:00 AM -- 11:00 AM</h3>
+                    <select id="selectSubject1" onchange="selecttrainer(10,'class1')" >
+                            <option value="">--select subject--</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="english">English</option>
+                            <option value="physics">physics</option>
+                            <option value="chemistry">chemistry</option>
+                            <option value="hindi">hindi</option>
+                            <option value="computer science">computer science</option>
+                    </select>
+                    <select  id="selectTrainer1">
+                            
+                    </select>
+
+                </div>
+                <div id='period'> 
+                        <h3>11:00 AM -- 12:00 PM</h3>
+                        <select id="selectSubject2" onchange="selecttrainer(11,'class1')">
+                                <option value="">--select subject--</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="english">English</option>
+                                <option value="physics">physics</option>
+                                <option value="chemistry">chemistry</option>
+                                <option value="hindi">hindi</option>
+                                <option value="computer science">computer science</option>
+                        </select>
+                        <select  id="selectTrainer2">
+                                
+                        </select>
+    
+                    </div>
+                    <div id='period'> 
+                            <h3>12:00 PM -- 1:00 PM</h3>
+                            <select id="selectSubject3" onchange="selecttrainer(12,'class1')">
+                                    <option value="">--select subject--</option>
+                                    <option value="mathematics">Mathematics</option>
+                                    <option value="english">English</option>
+                                    <option value="physics">physics</option>
+                                    <option value="chemistry">chemistry</option>
+                                    <option value="hindi">hindi</option>
+                                    <option value="computer science">computer science</option>
+                            </select>
+                            <select  id="selectTrainer3">
+                                    
+                            </select>
+        
+                        </div>
+                        <div id='period'> 
+                                <h3>1:00 PM -- 2:00 PM</h3>
+                                <h3>RECCESS</h3>
+            
+                            </div>
+                    <div id='period'> 
+                            <h3>2:00 PM -- 3:00 PM</h3>
+                            <select id="selectSubject4" onchange="selecttrainer(2,'class1')">
+                                    <option value="">--select subject--</option>
+                                    <option value="mathematics">Mathematics</option>
+                                    <option value="english">English</option>
+                                    <option value="physics">physics</option>
+                                    <option value="chemistry">chemistry</option>
+                                    <option value="hindi">hindi</option>
+                                    <option value="computer science">computer science</option>
+                            </select>
+                            <select  id="selectTrainer4">
+                                    
+                            </select>
+        
+                        </div>
+                        <div id='period'> 
+                                <h3>3:00 PM-- 4:00 PM</h3>
+                                <select id="selectSubject5" onchange="selecttrainer(3,'class1')">
+                                        <option value="">--select subject--</option>
+                                        <option value="mathematics">Mathematics</option>
+                                        <option value="english">English</option>
+                                        <option value="physics">physics</option>
+                                        <option value="chemistry">chemistry</option>
+                                        <option value="hindi">hindi</option>
+                                        <option value="computer science">computer science</option>
+                                </select>
+                                <select  id="selectTrainer5">
+                                        
+                                </select>
+            
+                            </div>
+                            <div id='period'> 
+                                    <h3>4:00 PM -- 5:00 PM</h3>
+                                    <select id="selectSubject6" onchange="selecttrainer(4,'class1')">
+                                            <option value="">--select subject--</option>
+                                            <option value="mathematics">Mathematics</option>
+                                            <option value="english">English</option>
+                                            <option value="physics">physics</option>
+                                            <option value="chemistry">chemistry</option>
+                                            <option value="hindi">hindi</option>
+                                            <option value="computer science">computer science</option>
+                                    </select>
+                                    <select  id="selectTrainer6">
+                                            
+                                    </select>
+                
+                                </div><br><br>
+             <input type="button" value="save" style="width:100px;" onclick="savedetails('class1')">
+        </div>
+
+
+
+
+
+        <div id = 'class2' style="display: none;" >
+        <div id='period'> 
+                <h3>10:00 AM -- 11:00 AM</h3>
+                <select id="selectSubject7" onchange="selecttrainer(10,'class2')">
+                        <option value="">--select subject--</option>
+                        <option value="mathematics">Mathematics</option>
+                        <option value="english">English</option>
+                        <option value="physics">physics</option>
+                        <option value="chemistry">chemistry</option>
+                        <option value="hindi">hindi</option>
+                        <option value="computer science">computer science</option>
+                </select>
+                <select  id="selectTrainer7" >
+                        
+                </select>
+
+            </div>
+            <div id='period'> 
+                    <h3>11:00 AM -- 12:00 PM</h3>
+                    <select id="selectSubject8" onchange="selecttrainer(11,'class2')">
+                            <option value="">--select subject--</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="english">English</option>
+                            <option value="physics">physics</option>
+                            <option value="chemistry">chemistry</option>
+                            <option value="hindi">hindi</option>
+                            <option value="computer science">computer science</option>
+                    </select>
+                    <select  id="selectTrainer8">
+                           
+                    </select>
+
+                </div>
+                <div id='period'> 
+                        <h3>12:00 PM -- 1:00 PM</h3>
+                        <select id="selectSubject9" onchange="selecttrainer(12,'class2')">
+                                <option value="">--select subject--</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="english">English</option>
+                                <option value="physics">physics</option>
+                                <option value="chemistry">chemistry</option>
+                                <option value="hindi">hindi</option>
+                                <option value="computer science">computer science</option>
+                        </select>
+                        <select  id="selectTrainer9">
+                                
+                        </select>
+    
+                    </div>
+                    <div id='period'> 
+                            <h3>1:00 PM -- 2:00 PM</h3>
+                            <h3>RECCESS</h3>
+        
+                        </div>
+                <div id='period'> 
+                        <h3>2:00 PM -- 3:00 PM</h3>
+                        <select id="selectSubject10" onchange="selecttrainer(2,'class2')">
+                                <option value="">--select subject--</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="english">English</option>
+                                <option value="physics">physics</option>
+                                <option value="chemistry">chemistry</option>
+                                <option value="hindi">hindi</option>
+                                <option value="computer science">computer science</option>
+                        </select>
+                        <select  id="selectTrainer10">
+                                
+                        </select>
+    
+                    </div>
+                    <div id='period'> 
+                            <h3>3:00 PM-- 4:00 PM</h3>
+                            <select id="selectSubject11" onchange="selecttrainer(3,'class2')">
+                                    <option value="">--select subject--</option>
+                                    <option value="mathematics">Mathematics</option>
+                                    <option value="english">English</option>
+                                    <option value="physics">physics</option>
+                                    <option value="chemistry">chemistry</option>
+                                    <option value="hindi">hindi</option>
+                                    <option value="computer science">computer science</option>
+                            </select>
+                            <select  id="selectTrainer11">
+                                    
+                            </select>
+        
+                        </div>
+                        <div id='period'> 
+                                <h3>4:00 PM -- 5:00 PM</h3>
+                                <select id="selectSubject12" onchange="selecttrainer(4,'class2')">
+                                        <option value="">--select subject--</option>
+                                        <option value="mathematics">Mathematics</option>
+                                        <option value="english">English</option>
+                                        <option value="physics">physics</option>
+                                        <option value="chemistry">chemistry</option>
+                                        <option value="hindi">hindi</option>
+                                        <option value="computer science">computer science</option>
+                                </select>
+                                <select  id="selectTrainer12">
+                                        
+                                </select>
+            
+                            </div>
+                            <input type="button" value="save" style="width:100px;" onclick="savedetails('class2')">
+                        </div>
+
+        </div>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        // function operate(_op){
+        //     let num1 = document.getElementById('num1').value;
+        //     let num2 = document.getElementById('num2').value;
+        //     const _url = `http://localhost:1234/${num1}/${num2}/${_op}`;
+        //     fetch(_url)
+        //     .then(res=>res.json())
+        //     .then((res)=>{
+        //         if(res.result!=null){
+        //             document.getElementById('_result').innerHTML = res.result;
+        //         }
+                
+
+        //     })
+        // }
+function operate(_op){
+    const _url = 'http://localhost:1234/result';
+    fetch(_url,{
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify( {
+            num1: document.getElementById('num1').value,
+            num2: document.getElementById('num2').value,
+            op: _op
+        })
+        })
+        .then(res=>res.json())
+        .then((res)=>{
+            console.log(res);
+             if(res.result!=null){
+             document.getElementById('_result').innerHTML = res.result;
+           }
+        } )               
+}
+    </script>
+</head>
+<body>
+    <input type="number" id="num1" placeholder="enter first number">
+    <input type="number" id="num2" placeholder="enter second number">
+    <input type="button" value="+" onclick="operate('add')" />
+    <input type="button" value="-" onclick="operate('sub')" />
+    <input type="button" value="*" onclick="operate('mul')" />
+    <input type="button" value="/" onclick="operate('div')" />
+    <span id="_result" style="color: coral"></span>
+</body>
+</html>

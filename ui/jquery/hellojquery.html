@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="hellojquery.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $('#save').click(()=>{
+                let name = $('#name').val();
+                let email = $('#email').val();
+                let number = $('#number').val();
+                alert(`name:${name}------email: ${email}---------number:${number}`);
+            })
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" placeholder="your name" id="name">
+        <input type="text" placeholder="your email" id="email">
+        <input type="number" placeholder="mobile number" id="number">
+
+        <input type="button" value="save" id="save">
+    </div>
+    
+</body>
+</html>

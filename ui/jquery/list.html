@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type='text/javascript' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/sunny/jquery-ui.css'>
+    <script>
+        $(document).ready(()=>{
+            var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+              }
+             }
+             };
+        var tech = getUrlParameter('set');
+        if(tech == 1){
+            $('#menu').menu();
+            $('#add').button();
+            $('#add').click(()=>{
+                $('#add_form').slideToggle();
+            });
+            $('#add_details').button();
+            $('#add_details').click(()=>{
+                let name = $('#_name').val();
+                let email = $('#_email').val();
+                let phone = $('#_number').val();
+                $("#_table").append(`<tr>
+                        <td>${name}</td>
+                        <td>${email}</td>
+                        <td>${phone}</td>
+                    </tr>`)
+            });
+            $("#search_detail").keyup(function() {
+                var value = $("#search_detail").val();
+                    $("#_table tr").filter(function() {
+                        $(this).toggle($(this).text().indexOf(value) > -1)
+            });
+        });
+            
+        }
+        else{
+            document.location = 'jqueryUI.html';
+        }
+        
+        })
+    </script>
+</head>
+<body>
+        <ul id="menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="">BLOG</a></li>
+                <li><a href="">MENU</a></li>
+                <li><a href="">PROFILE</a></li>
+                <li><a href="jqueryUI.html" id="logout">LOG OUT</a></li>
+        </ul>
+        <input type="button" id="add" value="+">
+        <input type="text" id="search_detail" placeholder="enter name to search">
+        <form action="" id="add_form" style="display: none">
+            <input type="text" name="_name" id="_name" placeholder="enter name">
+            <input type="text" name="_email" id="_email" placeholder="enter email">
+            <input type="text" name="_number" id="_number" placeholder="enter mobile number">
+            <input type="button" id="add_details" value="add">
+        </form> 
+        <table id="_table">
+                    <tr>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>phone number</th>
+                    </tr>
+                    <tr>
+                        <td>saket saxena</td>
+                        <td>saket@g.com</td>
+                        <td>8827089797</td>
+                    </tr>
+                    <tr>
+                         <td>rohit</td>
+                        <td>rohit@gg.com</td>
+                        <td>8989422489</td>
+                    </tr>
+                    <tr>
+                        <td>ajeet</td>
+                        <td>ajeet@gg.com</td>
+                        <td>8602658643</td>
+                    </tr>
+                    <tr>
+                        <td>anubhav</td>
+                        <td>anubhav@gg.com</td>
+                        <td>8602658643</td>
+                    </tr>
+                    <tr>
+                        <td>ram murti</td>
+                        <td>murti@gg.com</td>
+                        <td>8602658643</td>
+                    </tr>
+        </table>
+
+    
+</body>
+</html>

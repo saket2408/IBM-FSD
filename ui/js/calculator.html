@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="calculator.js"></script>
+</head>
+<body>
+    <div style="text-align: center; border: 2px solid; height: 300px; width: 300px; margin: 0 auto;"><br>
+        <input type="text" id="textfield" readonly ><br><br><br>
+        <input type="button" value="1"  onclick="getItem(1)">
+        <input type="button" value="2" onclick="getItem(2)">
+        <input type="button" value="3" onclick="getItem(3)"><br>
+        <input type="button" value="4" onclick="getItem(4)">
+        <input type="button" value="5" onclick="getItem(5)">
+        <input type="button" value="6" onclick="getItem(6)"><br>
+        <input type="button" value="7"  onclick="getItem(7)">
+        <input type="button" value="8" onclick="getItem(8)">
+        <input type="button" value="9" onclick="getItem(9)"><br>
+        <input type="button" value="0" onclick="getItem(0)"><br><br>
+        <input type="button" value="+" onclick="setNumber('+')">
+        <input type="button" value="-" onclick="setNumber('-')">
+        <input type="button" value="*" onclick="setNumber('*')">
+        <input type="button" value="/" onclick="setNumber('/')">
+        <input type="button" value="=" onclick = 'calculate()' >
+    </div>
+</body>
+</html>
