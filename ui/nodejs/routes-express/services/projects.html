@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>
+            projects Page
+        </title>
+        <script type="text/javascript">
+        const getProjects = ()=>{
+            const _url = 'http://localhost:1269/projects';
+            fetch(_url,{
+                headers:{
+                    'username' : 'tech',
+                    'password' : 'tech'
+                }
+            })
+            .then(res=>res.json())
+            .then(projects=>{
+                createTable(projects);
+                showProject();
+            })
+        
+        }
+        const createTable = (data)=>{
+            let rows = '';
+            data.projects.forEach(u => {
+                rows += `<tr>
+                            <td>${u.id}</td>
+                            <td>${u.name}</td>
+                            <td>${u.description}</td>
+                        </tr>`
+            });
+            const _table = `<table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>description</th>
+                                </tr>
+                                ${rows}
+                            </table>`
+            document.getElementById('users').innerHTML = _table;
+        }
+
+        const showProject = ()=>{
+            const _url = 'http://localhost:1269/projects';
+            fetch(_url,{
+                headers:{
+                    'username' : 'tech',
+                    'password' : 'tech'
+                }
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                let _options='';
+                data.projects.forEach((e)=>{
+                    _options += `<option value="${e.name}">${e.name}</option>`
+                })    
+                document.getElementById('selProject').innerHTML = _options;
+            })
+        }
+
+        const setEmployee = ()=>{
+            const _url = 'http://localhost:1269/relation';
+            fetch(_url)
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data.relation)
+                if(data.relation.length != 0 ){
+                    data.relation.forEach()
+                }
+                else{
+                    const _url = 'http://localhost:1269/users';
+                fetch(_url,{
+                    headers:{
+            'username' : 'tech',
+            'password' : 'tech'
+                }
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    let _option = '';
+                    data.users.forEach(e=>{
+                        _option += `<option value="${e.name}">${e.name}</option>`  
+                    })
+                    document.getElementById('selEmployee').innerHTML = _option;
+                })
+                }
+             })
+                }
+
+        const save =()=>{
+            let name = document.getElementById('selEmployee').value;
+            let projectName = document.getElementById('selProject').value;
+            const _url = 'http://localhost:1269/users';
+            fetch(_url,{
+                headers:{
+                    'username' : 'tech',
+                    'password' : 'tech'
+                }
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                let Edata = data.users.find(e=>{
+                    return e.name == name
+                })
+                const _url = 'http://localhost:1269/projects'; 
+                fetch(_url,{
+                headers:{
+                    'username' : 'tech',
+                    'password' : 'tech'
+                }
+            })
+                .then(res=>res.json())
+                .then(data=>{
+                    let Pdata = data.projects.find(e=>{
+                    return e.name == projectName;
+                })
+                const _url = 'http://localhost:1269/relation/add'; 
+                fetch(_url,{
+                    method : 'POST',
+                    headers:{
+                        'content-type': 'application/json'
+                    },
+                    body:JSON.stringify({
+                            userId: Edata.id,
+                            projectId : Pdata.id
+                        })
+                })
+                document.getElementById('_span').innerHTML = 'saved'
+            
+                })
+            })
+        }
+    
+        </script>
+    </head>
+    <body onload="getProjects()">
+        <div>
+            <fieldset>
+                select project
+                <select id="selProject" onchange="setEmployee()">
+
+                </select> <br>
+                select employee
+                <select id="selEmployee">
+
+                </select> <br>
+                <input type="button" value="save" onclick="save()">
+            <span id="_span" style="color: crimson"></span></fieldset>
+        </div>
+        
+    <div id="users">
+
+    </div>
+    </body>
+</html>
