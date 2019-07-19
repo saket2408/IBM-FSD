@@ -40,7 +40,6 @@ server.post('/result',(req,res)=>{
     res.setHeader('content-type','application/json');
     let _op = req.body.op;
     if(_op=='add'){
-        //console.log(_op);
         res.end(
             JSON.stringify({
                 result: parseInt(req.body.num1) + parseInt(req.body.num2)
@@ -48,7 +47,6 @@ server.post('/result',(req,res)=>{
         );
     }
     else if(_op=='sub'){
-        //console.log(_op);
         res.end(
             JSON.stringify({
                 result: parseInt(req.body.num1) - parseInt(req.body.num2)
@@ -56,7 +54,6 @@ server.post('/result',(req,res)=>{
         );
     }
     else if(_op=='mul'){
-        //console.log(_op);
         res.end(
             JSON.stringify({
                 result: parseInt(req.body.num1) * parseInt(req.body.num2)
@@ -64,7 +61,6 @@ server.post('/result',(req,res)=>{
         );
     }
     else if(_op=='div'){
-        //console.log(_op);
         res.end(
             JSON.stringify({
                 result: parseInt(req.body.num1) / parseInt(req.body.num2)
