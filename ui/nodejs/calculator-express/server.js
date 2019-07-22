@@ -13,7 +13,6 @@ server.get('/:num1/:num2/:op',(req,res)=>{
    // console.log(_op)
 
     if(_op=='add'){
-        console.log('op called ADD '+req.params.num1+"---" +req.params.num2);
     res.end(JSON.stringify({
         result : parseInt(req.params.num1) + parseInt(req.params.num2)
     }));
