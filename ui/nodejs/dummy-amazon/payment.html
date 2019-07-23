@@ -3,35 +3,67 @@
 <head>
     <title>Document</title>
     <script>
+        let row ='';
+        let content = `<h1 style="text-align: center">INVOICE</h1>
+                        <div style="float: left; margin-left: 30px">
+                            Name: saket saxena <br>
+                            email: saketsaxena2408@gmail.com <br>
+                            address: 15,globus township, ratlam (457001) <br>
+                            contact number: 8827089797
+                        </div>
+                        <div style="float: right; margin-right: 30px">
+                            DUMMY AMAZON <br>
+                            MG road Bangalore <br>
+                            contact number: 1234-2716221
+                        </div>
+                    </div>`;
           function showcart(){
             const _url = `http://localhost:1269/items/cart`;
         fetch(_url)
         .then(res=>res.json())
         .then((res)=>{
-            console.log(res)
             createItem(res);
         })
     }
-    let total;
 
     function createItem(data){
         
-        let row = `<table border = '1' style="margin : 0 auto; margin-top : 30px;border: 2px solid;">
+        row = `<table border = '1' style="margin : 0 auto; margin-top : 30px;border: 2px solid;">
                     <tr>
                         <th>NAME</th>
                         <th>DISCRIPTION</th>
                         <th>PRICE</th>
+                        <th>QUANTITY</th>
                     </tr>`;
         data.items.forEach(e => {
             row += `<tr id="${e.id}">
                     <td>${e.name}</td>
                     <td>${e.discription}</td>
-                    <td>${e.price}
-                        </td>
+                    <td>${e.price}</td>
+                    <td>${e.quantity}</td>
                 </tr>`;
             });
             document.getElementById('item-list').innerHTML = row + '</table>';
+            content = content + `<div id="item-list" style="margin-top: 300px">${row}</table></div>`
     }
+
+    function sendEmail(){
+       let email = document.getElementById('email').value;
+       const _url = `http://localhost:1269/items/email`;
+        fetch(_url,{
+            method: 'POST',
+            headers: {
+            'content-type': 'application/json'
+            },
+            body : JSON.stringify( {email : email,
+                                data : content})
+                })
+        .then(res=>res.json())
+        .then((res)=>{
+            document.getElementById('status').innerHTML = "invoice sent to your mail";
+        })
+
+    } 
     </script>
 </head>
 <body onload="showcart()">
@@ -52,7 +84,9 @@
         <div id="item-list" style="margin-top: 300px"></div>
         <p style="margin-left: 800px;">email:</p>
     <input type="text"  id="email" style="margin-left: 800px;">
-    <input type="button" style="margin-left: 800px;" value="get invoice">
+    <input type="button" style="margin-left: 800px;" value="get invoice" onclick="sendEmail()">
+    <div id="status"></div>
 
 </body>
 </html>
+

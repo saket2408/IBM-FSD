@@ -57,6 +57,15 @@ server.post('/findCart',(req,res)=>{
     }));
 });
 
+
+server.post('/quantityCart',(req,res)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('content-type','application/json');
+    res.end(JSON.stringify({
+        items : iService._findCartquantity(req.body)
+    }));
+});
+
 server.get('/cart',(req,res)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('content-type','application/json');
@@ -73,6 +82,13 @@ server.get('/length',(req,res)=>{
     }));
 });
 
+server.post('/email',(req,res)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('content-type','application/json');
+    res.end(JSON.stringify({
+        message : iService.email(req.body)
+    }));
+});
 
 
 module.exports.itemRoutes = server;

@@ -1,5 +1,7 @@
 const items = require('../dbs/items').items;
 const cart = require('../dbs/items').cart;
+const Email = require('./email.service').Email;
+const emailService = new Email();
 class itemService{
     items = [];
     cart = [];
@@ -52,7 +54,6 @@ class itemService{
         this.searchitems =  this.cart.find(e=>{
             return e.id == item.id;
         });
-        console.log(this.searchitems)
         let index;
          this.cart.find((e,i)=>{
              index=i
@@ -60,6 +61,28 @@ class itemService{
         })
         this.cart.splice(index,1);
         return this.cart;
+    }
+
+    _findCartquantity(item){
+        let index;
+        this.searchitems =  this.cart.find((e,i)=>{
+            index = i
+            return e.id == item.id;
+        });
+        this.cart[index].quantity = item.quantity;
+        return this.cart;
+
+    }
+
+    email(item){
+        let userObj ={
+            subject : "invoice",
+            body : item.data,
+            from : null,
+            to : item.email
+        }
+        let status = emailService.emailWithAttachment(userObj);
+        return status;
     }
 
 }

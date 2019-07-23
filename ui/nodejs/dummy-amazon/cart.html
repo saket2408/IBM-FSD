@@ -27,7 +27,7 @@
                 row += `<tr id="${e.id}">
                         <td>${e.name}</td>
                         <td>${e.discription}</td>
-                        <td><input type="button" onclick ="minus(${e.id})" value="-"><input type="text" id='num_${e.id}' value='1'>
+                        <td><input type="button" onclick ="minus(${e.id})" value="-"><input type="text" id='num_${e.id}' value='${e.quantity}'>
                             <input type="button" onclick ="add(${e.id})" value="+"></td>
                         <td id="price_${e.id}">${e.price}</td>
                         <td id='total_${e.id}'>${e.price}</td>
@@ -48,6 +48,19 @@
         document.getElementById(`num_${id}`).value= num;
         document.getElementById(`total_${id}`).innerText= price;
         document.getElementById('total').value = total;
+        const _url = `http://localhost:1269/items/quantityCart`;
+            fetch(_url,{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify( {
+                id : id,
+                quantity : num
+            })
+            })
+            .then(res=>res.json())
+
         }
         else {
             const _url = `http://localhost:1269/items/findCart`;
@@ -64,6 +77,8 @@
             .then((res)=>{
                 document.getElementById(`${id}`).style.display = 'none';
             })
+
+            
                 
         }
 
@@ -78,6 +93,19 @@
         document.getElementById(`num_${id}`).value= num;
         document.getElementById(`total_${id}`).innerText= price;
         document.getElementById('total').value = total;
+        const _url = `http://localhost:1269/items/quantityCart`;
+            fetch(_url,{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify( {
+                id : id,
+                quantity : num
+            })
+            })
+            .then(res=>res.json())
+
 
     }
 
