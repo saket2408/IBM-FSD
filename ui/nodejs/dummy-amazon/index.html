@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>home--Dummy Amazon</title>
+    <script>
+    
+        
+        //.....................................
+      function itemlist(){
+        document.getElementById('count').innerHTML = count;
+        const _url = `http://localhost:1269/items`;
+        fetch(_url)
+        .then(res=>res.json())
+        .then((res)=>{
+            createItem(res);
+            const _url = `http://localhost:1269/items/length`;
+                    fetch(_url)
+                    .then(res=>res.json())
+                    .then((res)=>{
+                        document.getElementById('count').innerText = res.length;
+                    })
+        })}
+//...................................................................
+    function createItem(data){
+            let row = '';
+            data.items.forEach(e => {
+                row += `<fieldset><div><h2>${e.name}</h2>
+                    <h4>${e.discription}</h4>
+                    <p>price : ${e.price}</p>
+                    <input type="button"  id="${e.id}" value="add to cart" onclick="addcart(${e.id})"> 
+                    </div></fieldset>`
+            });
+            document.getElementById('item-list').innerHTML = row;
+        }
+//.......................................................................
+    function showitem(){
+            let category = document.getElementById('search').value;
+            console.log(category)
+            if(category == ''){
+                itemlist();
+            }
+            else{
+            const _url = `http://localhost:1269/items/search`;
+        fetch(_url,{
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify( {
+            category : category
+        })
+        })
+        .then(res=>res.json())
+        .then((res)=>{
+            console.log(res)
+            if(res.items.length!= 0 ){
+            createItem(res);}
+            else{
+                document.getElementById('item-list').innerText = 'no item match your search';
+            }
+        })
+    }
+        }
+//....................................................................................
+        function addcart(id){
+            const _url = `http://localhost:1269/items/find`;
+        fetch(_url,{
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify( {
+            id : id
+        })
+        })
+        .then(res=>res.json())
+        .then((res)=>{
+            const _url = `http://localhost:1269/items/addcart`;
+                 fetch(_url,{
+                 method: 'POST',
+                 headers: {
+                     'content-type': 'application/json'
+                    },
+                body: JSON.stringify( {
+                    id: res.items.id,
+                    name: res.items.name,
+                    discription: res.items.discription,
+                    category: res.items.category,
+                    price: res.items.price
+                })
+                })
+                .then(res=>res.json())
+                .then((res)=>{
+                    const _url = `http://localhost:1269/items/length`;
+                    fetch(_url)
+                    .then(res=>res.json())
+                    .then((res)=>{
+                        document.getElementById('count').innerText = res.length;
+                        document.getElementById(id).value='already added';
+                        document.getElementById(id).disabled = true;
+                        alert('item added sucessfully. Proceed to checkout');
+
+                    })
+                })
+            
+        })
+
+        }
+    </script>
+
+</head>
+<body onload="itemlist()">
+    <div>
+        <input type="text" id="search" placeholder="search..">
+        <input type="button"  value="search by category" onclick="showitem()">
+        <a href="cart.html" style="float: right"><h2 id="count" style="display: inline; text-decoration: none;"></h2><img src="cart.jpg" height="50px" width="50px"></a>
+    </div><br><br>
+    <div id="item-list"></div>
+    
+</body>
+</html>

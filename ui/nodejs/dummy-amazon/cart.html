@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>cart -- dummy amazon</title>
+    <script>
+        function showcart(){
+            const _url = `http://localhost:1269/items/cart`;
+        fetch(_url)
+        .then(res=>res.json())
+        .then((res)=>{
+            console.log(res)
+            createItem(res);
+        })
+    }
+    let total = 0;
+    function createItem(data){
+        
+            let row = `<table border = '1' style="margin : 0 auto; margin-top : 30px;border: 2px solid;">
+                        <tr>
+                            <th>NAME</th>
+                            <th>DISCRIPTION</th>
+                            <th>QUANTITY</th>
+                            <th>PRICE</th>
+                            <th>TOTAL PRICE</th>
+                        </tr>`;
+            data.items.forEach(e => {
+                row += `<tr id="${e.id}">
+                        <td>${e.name}</td>
+                        <td>${e.discription}</td>
+                        <td><input type="button" onclick ="minus(${e.id})" value="-"><input type="text" id='num_${e.id}' value='1'>
+                            <input type="button" onclick ="add(${e.id})" value="+"></td>
+                        <td id="price_${e.id}">${e.price}</td>
+                        <td id='total_${e.id}'>${e.price}</td>
+                    </tr>`;
+                    total = total + e.price;
+            });
+            document.getElementById('item-list').innerHTML = row + '</table>';
+            document.getElementById('total').value = total;
+        }
+
+    function minus(id){
+        num = parseInt(document.getElementById(`num_${id}`).value);
+        price = parseInt(document.getElementById(`price_${id}`).innerText);
+        if(num!= 1){
+            num = num-1;
+            total = total-price;
+            price = price*num;
+        document.getElementById(`num_${id}`).value= num;
+        document.getElementById(`total_${id}`).innerText= price;
+        document.getElementById('total').value = total;
+        }
+        else {
+            const _url = `http://localhost:1269/items/findCart`;
+            fetch(_url,{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify( {
+                id : id
+            })
+            })
+            .then(res=>res.json())
+            .then((res)=>{
+                document.getElementById(`${id}`).style.display = 'none';
+            })
+                
+        }
+
+    }
+    function add(id){
+        
+        num = parseInt(document.getElementById(`num_${id}`).value);
+        price = parseInt(document.getElementById(`price_${id}`).innerText);
+        total = total+price;
+        num = num+1;
+        price = price*num;
+        document.getElementById(`num_${id}`).value= num;
+        document.getElementById(`total_${id}`).innerText= price;
+        document.getElementById('total').value = total;
+
+    }
+
+    function redirect(){
+        document.location = 'payment.html'
+    }
+    </script>
+</head>
+<body onload="showcart()">
+    <h2 style="text-align: center">Your cart</h2>
+    <div id="item-list"></div>
+    <br><br>
+    <p style="margin-left: 800px;">Total:</p>
+    <input type="text"  id="total" style="margin-left: 800px;">
+    <br><br><br><br>
+    <input type="button" value="Proceed to checkout" onclick="redirect()" style="height: 30px; width: 200px; margin-left: 500px;">
+    
+</body>
+</html>
