@@ -84,6 +84,7 @@ class itemService{
         let status = emailService.emailWithAttachment(userObj);
         return status;
     }
+    
     delete(){
         this.cart = [];
         return this.cart;

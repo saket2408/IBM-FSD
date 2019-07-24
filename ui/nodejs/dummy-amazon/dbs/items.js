@@ -5,7 +5,7 @@ let items = [
         discription : 'trim  any time.',
         category : 'grooming',
         price : 1800,
-        quantity : 10
+        quantity : 100
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ let items = [
         discription : 'shave  any time.',
         category : 'grooming',
         price : 1000,
-        quantity : 8
+        quantity : 800
     },
     {
         id: 3,
@@ -33,11 +33,11 @@ let items = [
     },
     {
         id: 5,
-        name : 'fastrack fitbit',
+        name : 'fitbit',
         discription : 'monitors you whereever you go.',
         category : 'watches',
         price : 1800,
-        quatity : 10
+        quatity : 100
     }   
 ]
 

@@ -24,11 +24,11 @@
     function createItem(data){
             let row = '';
             data.items.forEach(e => {
-                row += `<fieldset><div><h2>${e.name}</h2>
+                row += `<fieldset><h2>${e.name}</h2>
                     <h4>${e.discription}</h4>
                     <p>price : ${e.price}</p>
                     <input type="button"  id="${e.id}" value="add to cart" onclick="addcart(${e.id})"> 
-                    </div></fieldset>`
+                    </fieldset>`
             });
             document.getElementById('item-list').innerHTML = row;
         }
