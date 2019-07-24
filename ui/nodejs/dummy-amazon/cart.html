@@ -10,6 +10,12 @@
         .then((res)=>{
             console.log(res)
             createItem(res);
+            const _url = `http://localhost:1269/items/length`;
+                    fetch(_url)
+                    .then(res=>res.json())
+                    .then((res)=>{
+                        document.getElementById('count').innerText = res.length;
+                    })
         })
     }
     let total = 0;
@@ -115,6 +121,8 @@
     </script>
 </head>
 <body onload="showcart()">
+    <a href="cart.html" style="float: right"><h2 id="count" style="display: inline; text-decoration: none;"></h2><img src="cart.jpg" height="50px" width="50px"></a>
+    </div><br><br>
     <h2 style="text-align: center">Your cart</h2>
     <div id="item-list"></div>
     <br><br>

@@ -90,5 +90,13 @@ server.post('/email',(req,res)=>{
     }));
 });
 
+server.get('/delete',(req,res)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('content-type','application/json');
+    res.end(JSON.stringify({
+        items : iService.delete()
+    }));
+});
+
 
 module.exports.itemRoutes = server;

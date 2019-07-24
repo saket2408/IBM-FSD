@@ -60,7 +60,13 @@
                 })
         .then(res=>res.json())
         .then((res)=>{
-            document.getElementById('status').innerHTML = "invoice sent to your mail";
+            alert("invoice sent to your mail.continue shopping");
+            const _url = `http://localhost:1269/items/delete`;
+            fetch(_url)
+            .then(res=>res.json())
+            .then((res)=>{
+                document.location = 'index.html'
+        })
         })
 
     } 
@@ -85,7 +91,6 @@
         <p style="margin-left: 800px;">email:</p>
     <input type="text"  id="email" style="margin-left: 800px;">
     <input type="button" style="margin-left: 800px;" value="get invoice" onclick="sendEmail()">
-    <div id="status"></div>
 
 </body>
 </html>
