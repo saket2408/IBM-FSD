@@ -1,12 +1,16 @@
 const items = require('../dbs/items').items;
 const cart = require('../dbs/items').cart;
 const Email = require('./email.service').Email;
+const users = require('../dbs/users').users;
+const jwt = require('jsonwebtoken');
+const key = require('../keys/private').private_key;
 const emailService = new Email();
 class itemService{
     items = [];
     cart = [];
     searchitems=[];
     constructor(){
+        this.users = users;
         this.items = items;
         this.cart = cart;
     }
@@ -89,6 +93,33 @@ class itemService{
         this.cart = [];
         return this.cart;
     }
+
+    isUser(userName,pass){
+        return this.users.find((u)=>{
+            return u.name == userName && u.pass == pass;
+        });
+    }
+    generateToken(user){
+        const data = {
+            email : user.email,
+            userName : user.name
+        }
+        const token = jwt.sign(data,key,{
+            expiresIn : '120s'
+        });
+        return token;
+    }
+
+    validateToken(token){
+        let isValid = false;
+        try{
+            isValid = jwt.verify(token,key);
+            console.log(isValid)
+        }catch(error){
+            console.error(error);
+        }   
+        return isValid;    
+    };
 
 }
 

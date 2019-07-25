@@ -7,7 +7,6 @@ server.use(cors());
 server.use(parser.json());
 
 server.get('/:num1/:num2/:op',(req,res)=>{
-    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('content-type','application/json');
     let _op = req.params.op;
    // console.log(_op)
@@ -32,10 +31,19 @@ server.get('/:num1/:num2/:op',(req,res)=>{
         result : parseInt(req.params.num1) / parseInt(req.params.num2)
     }));
     }
+    else if(_op=='power'){
+        res.end(JSON.stringify({
+            result : Math.pow(parseInt(req.params.num1),parseInt(req.params.num2))
+        }));
+    }
+    else if(_op=='sqrt'){
+        res.end(JSON.stringify({
+            result : Math.round(Math.sqrt(parseInt(req.params.num1)))
+        }));
+    }
 });
 
 server.post('/result',(req,res)=>{
-    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('content-type','application/json');
     let _op = req.body.op;
     if(_op=='add'){
@@ -65,6 +73,16 @@ server.post('/result',(req,res)=>{
                 result: parseInt(req.body.num1) / parseInt(req.body.num2)
             })
         );
+    }
+    else if(_op=='power'){
+        res.end(JSON.stringify({
+            result : Math.pow(parseInt(req.body.num1),parseInt(req.body.num2))
+        }));
+    }
+    else if(_op=='sqrt'){
+        res.end(JSON.stringify({
+            result : Math.round(Math.sqrt(parseInt(req.body.num1)))
+        }));
     }
 });
 

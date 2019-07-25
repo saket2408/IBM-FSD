@@ -18,13 +18,18 @@
                         </div>
                     </div>`;
           function showcart(){
+            if(localStorage.getItem("token") !=null){
             const _url = `http://localhost:1269/items/cart`;
-        fetch(_url)
-        .then(res=>res.json())
-        .then((res)=>{
-            createItem(res);
-        })
+            fetch(_url)
+            .then(res=>res.json())
+            .then((res)=>{
+                createItem(res);
+            })
     }
+    else{
+        document.location = 'login.html'
+    }
+}
 
     function createItem(data){
         

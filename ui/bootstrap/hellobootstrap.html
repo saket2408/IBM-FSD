@@ -9,239 +9,187 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<style>
-   .div1{
-        overflow: scroll;
-   }
-   .div2{
-       overflow: scroll;
-   }
-</style>
-
 </head>
-<body>
-    <div class="container">
-        hi bootstrap
+<body style="background: #f2f2f2">
+    <div class="container" style="background: white">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu1">about us </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu2">contact us</a>
+            </li>
+          </ul>
+          <div id="demo" class="carousel slide" data-ride="carousel">
 
-        <div class="row">
-            <div class="col-8 div1">In computing, plain text is a loose term for data (e.g. file contents) that represent only characters of readable material but not its graphical representation nor other objects (floating-point numbers, images, etc.). It may also include a limited number of characters that control simple arrangement of text, such as spaces, line breaks, or tabulation characters (although tab characters can "mean" many different things, so are hardly "plain"). Plain text is different from formatted text, where style information is included; from structured text, where structural parts of the document such as paragraphs, sections, and the like are identified); and from binary files in which some portions must be interpreted as binary objects (encoded integers, real numbers, images, etc.).
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+          
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="la.jpg" alt="Los Angeles" height="400px" width="100%">
+                <div class="carousel-caption">
+                    <h3>BEACH</h3>
+                    <p>We had such a great time !</p>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img src="chicago.jpg" alt="Chicago" height="400px" width="100%">
+                <div class="carousel-caption">
+                    <h3>BEACH</h3>
+                    <p>We had such a great time !</p>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img src="ny.jpg" alt="New York" height="400px" width="100%">
+                <div class="carousel-caption">
+                    <h3>BEACH</h3>
+                    <p>We had such a great time !</p>
+                  </div>
+              </div>
+            </div>
+          
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          
+          </div>
 
-                The term is sometimes used quite loosely, to mean files that contain only "readable" content (or just files with nothing that the speaker doesn't prefer). For example, that could exclude any indication of fonts or layout (such as markup, markdown, or even tabs); characters such as curly quotes, non-breaking spaces, soft hyphens, em dashes, and/or ligatures; or other things.
-                
-                In principle, plain text can be in any encoding, but occasionally the term is taken to imply ASCII. As Unicode-based encodings such as UTF-8 and UTF-16 become more common, that usage may be shrinking.
-                
-                plain text is also sometimes used only to exclude "binary" files: those in which at least some parts of the file cannot be correctly interpreted via the character encoding in effect. For example, a file or string consisting of "hello" (in whatever encoding), following by 4 bytes that express a binary integer that is not just a character, is a binary file, not plain text by even the loosest common usages. Put another way, translating a plain text file to a character encoding that uses entirely different number to represent characters, does not change the meaning (so long as you know what encoding is in use), but for binary files such a conversion does change the meaning of at least some parts of the file.
-                
-                Files that contain markup or other meta-data are generally considered plain-text, so long as the markup is also in directly human-readable form (as in HTML, XML, and so on (as Coombs, Renear, and DeRose argue,[1] punctuation is itself markup; and no one considers punctuation to disqualify a file from being plain text).
-                
-                The use of plain text rather than binary files, enables files to survive much better "in the wild", in part by making them largely immune to computer architecture incompatibilities. For example, all the problems of Endianness can be avoided (with encodings such as UCS-2 rather than UTF-8, endianness matters, but uniformly for every character, rather than for potentially-unknown subsets of it).
-                
-                According to The Unicode Standard,
-                
-                    "Plain text is a pure sequence of character codes; plain Un-encoded text is therefore a sequence of Unicode character codes."
-                    styled text, also known as rich text, is any text representation containing plain text completed by information such as a language identifier, font size, color, hypertext links.[2]
-                
-                Thus, representations such as SGML, RTF, HTML, XML, wiki markup, and TeX, as well as nearly all programming language source code files, are considered plain text. The particular contents is irrelevant to whether a file is plain text. For example, an SVG file can express drawings or even bitmapped graphics, but is still plain text.
-                
-                According to The Unicode Standard, plain text has two main properties in regard to rich text:
-                
-                    "plain text is the underlying content stream to which formatting can be applied."
-                    "Plain text is public, standardized, and universally readable.".[2]
-                
-                Contents
-                
-                    1 Plain text and rich text
-                    2 Usage
-                    3 Encoding
-                        3.1 Character encodings
-                        3.2 Control codes
-                    4 See also
-                    5 References
-                
-                Plain text and rich text
-                
-                Files that contain markup or other meta-data are generally considered plain-text, as long as the entirety remains in directly human-readable form (as in HTML, XML, and so on (as Coombs, Renear, and DeRose argue,[1] punctuation is itself markup). The use of plain text rather than bit-streams to express markup, enables files to survive much better "in the wild", in part by making them largely immune to computer architecture incompatibilities.
-                
-                According to The Unicode Standard:
-                
-                    "Plain text is a pure sequence of character codes; plain Unicode-encoded text is therefore a sequence of Unicode character codes."
-                    styled text, also known as rich text, is any text representation containing plain text completed by information such as a language identifier, font size, color, hypertext links.[2]
-                
-                For instance, rich text such as SGML, RTF, HTML, XML, wiki markup, and TeX rely on plain text.
-                
-                According to The Unicode Standard, plain text has two main properties in regard to rich text:
-                
-                    "plain text is the underlying content stream to which formatting can be applied."
-                    "Plain text is public, standardized, and universally readable."[2]
-                
-                Usage
-                
-                The purpose of using plain text today is primarily independence from programs that require their very own special encoding or formatting or file format. Plain text files can be opened, read, and edited with ubiquitous text editors and utilities.
-                
-                A command-line interface allows people to give commands in plain text and get a response, also typically in plain text.
-                
-                Many other computer programs are also capable of processing or creating plain text, such as countless programs in DOS, Windows, classic Mac OS, and Unix and its kin; as well as web browsers (a few browsers such as Lynx and the Line Mode Browser produce only plain text for display) and other e-text readers.
-                
-                Plain text files are almost universal in programming; a source code file containing instructions in a programming language is almost always a plain text file. Plain text is also commonly used for configuration files, which are read for saved settings at the startup of a program.
-                
-                Plain text is used for much e-mail.
-                
-                A comment, a ".txt" file, or a TXT Record generally contains only plain text (without formatting) intended for humans to read.
-                
-                The best format for storing knowledge persistently is plain text, rather than some binary format.[3]
-                Encoding
-                Character encodings
-                Main article: Character encoding
-                
-                Before the early 1960s, computers were mainly used for number-crunching rather than for text, and memory was extremely expensive. Computers often allocated only 6 bits for each character, permitting only 64 characters—assigning codes for A-Z, a-z, and 0-9 would leave only 2 codes: nowhere near enough. Most computers opted not to support lower-case letters. Thus, early text projects such as Roberto Busa's Index Thomisticus, the Brown Corpus, and others had to resort to conventions such as keying an asterisk preceding letters actually intended to be upper-case.
-                
-                Fred Brooks of IBM argued strongly for going to 8-bit bytes, because someday people might want to process text; and won. Although IBM used EBCDIC, most text from then on came to be encoded in ASCII, using values from 0 to 31 for (non-printing) control characters, and values from 32 to 127 for graphic characters such as letters, digits, and punctuation. Most machines stored characters in 8 bits rather than 7, ignoring the remaining bit or using it as a checksum.
-                
-                The near-ubiquity of ASCII was a great help, but failed to address international and linguistic concerns. The dollar-sign ("$") was not so useful in England, and the accented characters used in Spanish, French, German, and many other languages were entirely unavailable in ASCII (not to mention characters used in Greek, Russian, and most Eastern languages). Many individuals, companies, and countries defined extra characters as needed—often reassigning control characters, or using value in the range from 128 to 255. Using values above 128 conflicts with using the 8th bit as a checksum, but the checksum usage gradually died out.
-                
-                These additional characters were encoded differently in different countries, making texts impossible to decode without figuring out the originator's rules. For instance, a browser might display ¬A rather than ` if it tried to interpret one character set as another. The International Organisation for Standardisation (ISO) eventually developed several code pages under ISO 8859, to accommodate various languages. The first of these (ISO 8859-1) is also known as"Latin-1", and covers the needs of most (not all) European languages that use Latin-based characters (there was not quite enough room to cover them all). ISO 2022 then provided conventions for"switching" between different character sets in mid-file. Many other organisations developed variations on these, and for many years Windows and Macintosh computers used incompatible variations.
-                
-                The text-encoding situation became more and more complex, leading to efforts by ISO and by the Unicode Consortium to develop a single, unified character encoding that could cover all known (or at least all currently known) languages. After some conflict,[citation needed] these efforts were unified. Unicode currently allows for 1,114,112 code values, and assigns codes covering nearly all modern text writing systems, as well as many historical ones and for many non-linguistic characters such as printer's dingbats, mathematical symbols, etc.
-                
-                Text is considered plain-text regardless of its encoding. To properly understand or process it the recipient must know (or be able to figure out) what encoding was used; however, they need not know anything about the computer architecture that was used, or about the binary structures defined by whatever program (if any) created the data.
-                
-                Perhaps the most common way of explicitly stating the specific encoding of plain text is with a MIME type. For email and http, the default MIME type is "text/plain" -- plain text without markup. Another MIME type often used in both email and http is "text/html; charset=UTF-8" -- plain text represented using UTF-8 character encoding with HTML markup. Another common MIME type is "application/json" -- plain text represented using UTF-8 character encoding with JSON markup.
-                
-                When a document is received without any explicit indication of the character encoding, some applications use charset detection to attempt to guess what encoding was used.
-                Control codes
-                Main article: C0 and C1 control codes
-                
-                ASCII reserves the first 32 codes (numbers 0–31 decimal) for control characters known as the "C0 set": codes originally intended not to represent printable information, but rather to control devices (such as printers) that make use of ASCII, or to provide meta-information about data streams such as those stored on magnetic tape. They include common characters like the newline and the tab character.
-                
-                In 8-bit character sets such as Latin-1 and the other ISO 8859 sets, the first 32 characters of the "upper half" (128 to 159) are also control codes, known as the "C1 set". They are rarely used directly; when they turn up in documents which are ostensibly in an ISO 8859 encoding, their code positions generally refer instead to the characters at that position in a proprietary, system-specific encoding, such as Windows-1252 or Mac OS Roman, that use the codes to instead provide additional graphic characters.
-                Main article: Unicode control characters
-                
-                Unicode defines additional control characters, including bi-directional text direction override characters (used to explicitly mark right-to-left writing inside left-to-right writing and the other way around) and variation selectors to select alternate forms of CJK ideographs, emoji and other characters.
-                See also
-                
-                    Plaintext or cleartext, most commonly used in a cryptographic context
-                    Binary file
-                    Text file
-                    Source code
-                    Word wrap
-                
-                References
-                
-                Coombs, James H.; Renear, Allen H.; DeRose, Steven J. (November 1987). "Markup systems and the future of scholarly text processing". Communications of the ACM. 30 (11): 933–947. CiteSeerX 10.1.1.515.5618. doi:10.1145/32206.32209.
-                The Unicode Standard, version 6.1, General Structure, page 14
-                Andrew Hunt, David Thomas. "The Pragmatic Programmer". 1999. Chapter 14: "The Power of Plain Text". p. 73.</div>
-            
-            
-            
-            
-            
-                <div class="col-4 div2">In computing, plain text is a loose term for data (e.g. file contents) that represent only characters of readable material but not its graphical representation nor other objects (floating-point numbers, images, etc.). It may also include a limited number of characters that control simple arrangement of text, such as spaces, line breaks, or tabulation characters (although tab characters can "mean" many different things, so are hardly "plain"). Plain text is different from formatted text, where style information is included; from structured text, where structural parts of the document such as paragraphs, sections, and the like are identified); and from binary files in which some portions must be interpreted as binary objects (encoded integers, real numbers, images, etc.).
+          <div class="row">
+              <div class="col-8">
+                <div class="tab-content">
+                    <div class="tab-pane container active" id="home"><br><br>
+                        <h1>Home</h1>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Ullam earum doloremque nisi inventore expedita incidunt iure, sapiente harum obcaecati quae excepturi
+                          optio recusandae tenetur nesciunt libero id voluptates officia rem?
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, inventore non minima facilis
+                         tempore similique id est et beatae illum incidunt dolor delectus nisi quae omnis perspiciatis modi! Eligendi, vel?
+                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, corporis cum! Labore porro
+                          error excepturi cum tenetur ducimus dolor. Quidem, molestiae perferendis velit esse voluptas 
+                          aliquam minima reiciendis adipisci. Dignissimos!
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tenetur excepturi ipsa dolorem,
+                           vero ipsam consequuntur! Delectus aliquam vel, quidem debitis veniam recusandae id, dolores deserunt, 
+                           odit maiores asperiores assumenda!
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Ullam earum doloremque nisi inventore expedita incidunt iure, sapiente harum obcaecati quae excepturi
+                          optio recusandae tenetur nesciunt libero id voluptates officia rem?
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, inventore non minima facilis
+                         tempore similique id est et beatae illum incidunt dolor delectus nisi quae omnis perspiciatis modi! Eligendi, vel?
+                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, corporis cum! Labore porro
+                          error excepturi cum tenetur ducimus dolor. Quidem, molestiae perferendis velit esse voluptas 
+                          aliquam minima reiciendis adipisci. Dignissimos!
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tenetur excepturi ipsa dolorem,
+                           vero ipsam consequuntur! Delectus aliquam vel, quidem debitis veniam recusandae id, dolores deserunt, 
+                           odit maiores asperiores assumenda!
 
-                The term is sometimes used quite loosely, to mean files that contain only "readable" content (or just files with nothing that the speaker doesn't prefer). For example, that could exclude any indication of fonts or layout (such as markup, markdown, or even tabs); characters such as curly quotes, non-breaking spaces, soft hyphens, em dashes, and/or ligatures; or other things.
-                
-                In principle, plain text can be in any encoding, but occasionally the term is taken to imply ASCII. As Unicode-based encodings such as UTF-8 and UTF-16 become more common, that usage may be shrinking.
-                
-                plain text is also sometimes used only to exclude "binary" files: those in which at least some parts of the file cannot be correctly interpreted via the character encoding in effect. For example, a file or string consisting of "hello" (in whatever encoding), following by 4 bytes that express a binary integer that is not just a character, is a binary file, not plain text by even the loosest common usages. Put another way, translating a plain text file to a character encoding that uses entirely different number to represent characters, does not change the meaning (so long as you know what encoding is in use), but for binary files such a conversion does change the meaning of at least some parts of the file.
-                
-                Files that contain markup or other meta-data are generally considered plain-text, so long as the markup is also in directly human-readable form (as in HTML, XML, and so on (as Coombs, Renear, and DeRose argue,[1] punctuation is itself markup; and no one considers punctuation to disqualify a file from being plain text).
-                
-                The use of plain text rather than binary files, enables files to survive much better "in the wild", in part by making them largely immune to computer architecture incompatibilities. For example, all the problems of Endianness can be avoided (with encodings such as UCS-2 rather than UTF-8, endianness matters, but uniformly for every character, rather than for potentially-unknown subsets of it).
-                
-                According to The Unicode Standard,
-                
-                    "Plain text is a pure sequence of character codes; plain Un-encoded text is therefore a sequence of Unicode character codes."
-                    styled text, also known as rich text, is any text representation containing plain text completed by information such as a language identifier, font size, color, hypertext links.[2]
-                
-                Thus, representations such as SGML, RTF, HTML, XML, wiki markup, and TeX, as well as nearly all programming language source code files, are considered plain text. The particular contents is irrelevant to whether a file is plain text. For example, an SVG file can express drawings or even bitmapped graphics, but is still plain text.
-                
-                According to The Unicode Standard, plain text has two main properties in regard to rich text:
-                
-                    "plain text is the underlying content stream to which formatting can be applied."
-                    "Plain text is public, standardized, and universally readable.".[2]
-                
-                Contents
-                
-                    1 Plain text and rich text
-                    2 Usage
-                    3 Encoding
-                        3.1 Character encodings
-                        3.2 Control codes
-                    4 See also
-                    5 References
-                
-                Plain text and rich text
-                
-                Files that contain markup or other meta-data are generally considered plain-text, as long as the entirety remains in directly human-readable form (as in HTML, XML, and so on (as Coombs, Renear, and DeRose argue,[1] punctuation is itself markup). The use of plain text rather than bit-streams to express markup, enables files to survive much better "in the wild", in part by making them largely immune to computer architecture incompatibilities.
-                
-                According to The Unicode Standard:
-                
-                    "Plain text is a pure sequence of character codes; plain Unicode-encoded text is therefore a sequence of Unicode character codes."
-                    styled text, also known as rich text, is any text representation containing plain text completed by information such as a language identifier, font size, color, hypertext links.[2]
-                
-                For instance, rich text such as SGML, RTF, HTML, XML, wiki markup, and TeX rely on plain text.
-                
-                According to The Unicode Standard, plain text has two main properties in regard to rich text:
-                
-                    "plain text is the underlying content stream to which formatting can be applied."
-                    "Plain text is public, standardized, and universally readable."[2]
-                
-                Usage
-                
-                The purpose of using plain text today is primarily independence from programs that require their very own special encoding or formatting or file format. Plain text files can be opened, read, and edited with ubiquitous text editors and utilities.
-                
-                A command-line interface allows people to give commands in plain text and get a response, also typically in plain text.
-                
-                Many other computer programs are also capable of processing or creating plain text, such as countless programs in DOS, Windows, classic Mac OS, and Unix and its kin; as well as web browsers (a few browsers such as Lynx and the Line Mode Browser produce only plain text for display) and other e-text readers.
-                
-                Plain text files are almost universal in programming; a source code file containing instructions in a programming language is almost always a plain text file. Plain text is also commonly used for configuration files, which are read for saved settings at the startup of a program.
-                
-                Plain text is used for much e-mail.
-                
-                A comment, a ".txt" file, or a TXT Record generally contains only plain text (without formatting) intended for humans to read.
-                
-                The best format for storing knowledge persistently is plain text, rather than some binary format.[3]
-                Encoding
-                Character encodings
-                Main article: Character encoding
-                
-                Before the early 1960s, computers were mainly used for number-crunching rather than for text, and memory was extremely expensive. Computers often allocated only 6 bits for each character, permitting only 64 characters—assigning codes for A-Z, a-z, and 0-9 would leave only 2 codes: nowhere near enough. Most computers opted not to support lower-case letters. Thus, early text projects such as Roberto Busa's Index Thomisticus, the Brown Corpus, and others had to resort to conventions such as keying an asterisk preceding letters actually intended to be upper-case.
-                
-                Fred Brooks of IBM argued strongly for going to 8-bit bytes, because someday people might want to process text; and won. Although IBM used EBCDIC, most text from then on came to be encoded in ASCII, using values from 0 to 31 for (non-printing) control characters, and values from 32 to 127 for graphic characters such as letters, digits, and punctuation. Most machines stored characters in 8 bits rather than 7, ignoring the remaining bit or using it as a checksum.
-                
-                The near-ubiquity of ASCII was a great help, but failed to address international and linguistic concerns. The dollar-sign ("$") was not so useful in England, and the accented characters used in Spanish, French, German, and many other languages were entirely unavailable in ASCII (not to mention characters used in Greek, Russian, and most Eastern languages). Many individuals, companies, and countries defined extra characters as needed—often reassigning control characters, or using value in the range from 128 to 255. Using values above 128 conflicts with using the 8th bit as a checksum, but the checksum usage gradually died out.
-                
-                These additional characters were encoded differently in different countries, making texts impossible to decode without figuring out the originator's rules. For instance, a browser might display ¬A rather than ` if it tried to interpret one character set as another. The International Organisation for Standardisation (ISO) eventually developed several code pages under ISO 8859, to accommodate various languages. The first of these (ISO 8859-1) is also known as"Latin-1", and covers the needs of most (not all) European languages that use Latin-based characters (there was not quite enough room to cover them all). ISO 2022 then provided conventions for"switching" between different character sets in mid-file. Many other organisations developed variations on these, and for many years Windows and Macintosh computers used incompatible variations.
-                
-                The text-encoding situation became more and more complex, leading to efforts by ISO and by the Unicode Consortium to develop a single, unified character encoding that could cover all known (or at least all currently known) languages. After some conflict,[citation needed] these efforts were unified. Unicode currently allows for 1,114,112 code values, and assigns codes covering nearly all modern text writing systems, as well as many historical ones and for many non-linguistic characters such as printer's dingbats, mathematical symbols, etc.
-                
-                Text is considered plain-text regardless of its encoding. To properly understand or process it the recipient must know (or be able to figure out) what encoding was used; however, they need not know anything about the computer architecture that was used, or about the binary structures defined by whatever program (if any) created the data.
-                
-                Perhaps the most common way of explicitly stating the specific encoding of plain text is with a MIME type. For email and http, the default MIME type is "text/plain" -- plain text without markup. Another MIME type often used in both email and http is "text/html; charset=UTF-8" -- plain text represented using UTF-8 character encoding with HTML markup. Another common MIME type is "application/json" -- plain text represented using UTF-8 character encoding with JSON markup.
-                
-                When a document is received without any explicit indication of the character encoding, some applications use charset detection to attempt to guess what encoding was used.
-                Control codes
-                Main article: C0 and C1 control codes
-                
-                ASCII reserves the first 32 codes (numbers 0–31 decimal) for control characters known as the "C0 set": codes originally intended not to represent printable information, but rather to control devices (such as printers) that make use of ASCII, or to provide meta-information about data streams such as those stored on magnetic tape. They include common characters like the newline and the tab character.
-                
-                In 8-bit character sets such as Latin-1 and the other ISO 8859 sets, the first 32 characters of the "upper half" (128 to 159) are also control codes, known as the "C1 set". They are rarely used directly; when they turn up in documents which are ostensibly in an ISO 8859 encoding, their code positions generally refer instead to the characters at that position in a proprietary, system-specific encoding, such as Windows-1252 or Mac OS Roman, that use the codes to instead provide additional graphic characters.
-                Main article: Unicode control characters
-                
-                Unicode defines additional control characters, including bi-directional text direction override characters (used to explicitly mark right-to-left writing inside left-to-right writing and the other way around) and variation selectors to select alternate forms of CJK ideographs, emoji and other characters.
-                See also
-                
-                    Plaintext or cleartext, most commonly used in a cryptographic context
-                    Binary file
-                    Text file
-                    Source code
-                    Word wrap
-                
-                References
-                
-                Coombs, James H.; Renear, Allen H.; DeRose, Steven J. (November 1987). "Markup systems and the future of scholarly text processing". Communications of the ACM. 30 (11): 933–947. CiteSeerX 10.1.1.515.5618. doi:10.1145/32206.32209.
-                The Unicode Standard, version 6.1, General Structure, page 14
-                Andrew Hunt, David Thomas. "The Pragmatic Programmer". 1999. Chapter 14: "The Power of Plain Text". p. 73.</div>
-        </div>
+                        </div>
+                    <div class="tab-pane container fade" id="menu1"><br><br>
+                        <h1>ABOUT US</h1>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Ullam earum doloremque nisi inventore expedita incidunt iure, sapiente harum obcaecati quae excepturi
+                          optio recusandae tenetur nesciunt libero id voluptates officia rem?
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, inventore non minima facilis
+                         tempore similique id est et beatae illum incidunt dolor delectus nisi quae omnis perspiciatis modi! Eligendi, vel?
+                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, corporis cum! Labore porro
+                          error excepturi cum tenetur ducimus dolor. Quidem, molestiae perferendis velit esse voluptas 
+                          aliquam minima reiciendis adipisci. Dignissimos!
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tenetur excepturi ipsa dolorem,
+                           vero ipsam consequuntur! Delectus aliquam vel, quidem debitis veniam recusandae id, dolores deserunt, 
+                           odit maiores asperiores assumenda!
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                         Ullam earum doloremque nisi inventore expedita incidunt iure, sapiente harum obcaecati quae excepturi
+                          optio recusandae tenetur nesciunt libero id voluptates officia rem?
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, inventore non minima facilis
+                         tempore similique id est et beatae illum incidunt dolor delectus nisi quae omnis perspiciatis modi! Eligendi, vel?
+                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, corporis cum! Labore porro
+                          error excepturi cum tenetur ducimus dolor. Quidem, molestiae perferendis velit esse voluptas 
+                          aliquam minima reiciendis adipisci. Dignissimos!
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium tenetur excepturi ipsa dolorem,
+                           vero ipsam consequuntur! Delectus aliquam vel, quidem debitis veniam recusandae id, dolores deserunt, 
+                           odit maiores asperiores assumenda!
+                    </div>
+                    <div class="tab-pane container fade" id="menu2"><br><br>
+                        <h1>Contact us</h1>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>Mary</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>July</td>
+                                <td>Dooley</td>
+                                <td>july@example.com</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-4">
+                    <div class="card bg-light text-dark" style="height: 100%">
+                            <div class="card-body">
+                    <form action="" class="was-validated"><br><br>
+                        <div class="form-group">
+                          <label for="uname">Username:</label>
+                          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                                <label for="pwd">contact number:</label>
+                                <input type="number" class="form-control" id="num" placeholder="Enter mobile number" name="pswd" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                              </div>
+                        <div class="form-group">
+                          <label for="pwd">Password:</label>
+                          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+                          <div class="valid-feedback">Valid.</div>
+                          <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember" required> I agree.
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Check this checkbox to continue.</div>
+                          </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form> 
+                    </div>
+                          </div>
+              </div>
+          </div>
+          
+          <!-- Tab panes -->
+         
     </div>
 </body>
 </html>

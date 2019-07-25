@@ -1,7 +1,7 @@
 const server = require('express').Router();
 const itemService = require('../services/items-service').itemservice;
 const iService = new itemService();
-
+const validate = require('../services/security.service').validate;
 
 server.get('/',(req,res)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -65,6 +65,9 @@ server.post('/quantityCart',(req,res)=>{
         items : iService._findCartquantity(req.body)
     }));
 });
+    server.use('/cart',(rq,rs,next)=>{
+        validate(rq,rs,next);
+    });
 
 server.get('/cart',(req,res)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -97,6 +100,23 @@ server.get('/delete',(req,res)=>{
         items : iService.delete()
     }));
 });
+
+server.post('/token',(rq,rs)=>{
+    // generate token
+    const userExists = iService.isUser(rq.body.user,rq.body.pass);
+    if(userExists){
+        const token = iService.generateToken(userExists);
+        rs.status(200).json({
+            message : 'Token Generated Successfully',
+            token : token
+        })
+    }else{
+        rs.status(400).json({
+            message : 'Invalid User credentials'
+        });
+    }
+});
+
 
 
 module.exports.itemRoutes = server;

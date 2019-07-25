@@ -4,11 +4,23 @@
     <title>cart -- dummy amazon</title>
     <script>
         function showcart(){
+            let _token = localStorage.getItem("token");
+            if(_token !=null){
+               
             const _url = `http://localhost:1269/items/cart`;
-        fetch(_url)
+        fetch(_url,{
+            headers : {
+                'token' : JSON.parse(_token)
+            }
+        })
         .then(res=>res.json())
         .then((res)=>{
-            console.log(res)
+            if(res.message!=undefined){
+                localStorage.removeItem('token');
+                alert('session expires. please login again')
+                document.location = 'login.html'
+            }
+          else{
             createItem(res);
             const _url = `http://localhost:1269/items/length`;
                     fetch(_url)
@@ -16,8 +28,13 @@
                     .then((res)=>{
                         document.getElementById('count').innerText = res.length;
                     })
+                }
         })
     }
+    else{
+        document.location = 'login.html'
+    }
+}
     let total = 0;
     function createItem(data){
         

@@ -32,9 +32,8 @@ function operate(_op){
         })
         .then(res=>res.json())
         .then((res)=>{
-            console.log(res);
              if(res.result!=null){
-             document.getElementById('_result').innerHTML = res.result;
+             document.getElementById('_result').innerHTML = 'Result is : ' + res.result;
            }
         } )               
 }
@@ -47,6 +46,8 @@ function operate(_op){
     <input type="button" value="-" onclick="operate('sub')" />
     <input type="button" value="*" onclick="operate('mul')" />
     <input type="button" value="/" onclick="operate('div')" />
-    <span id="_result" style="color: coral"></span>
+    <input type="button" value="sqrt" onclick="operate('sqrt')" />
+    <input type="button" value="power" onclick="operate('power')" />
+    <span id="_result" style="color: green"></span>
 </body>
 </html>

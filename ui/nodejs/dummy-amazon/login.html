@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>login</title>
+    <script>
+        function login(){
+            let user = document.getElementById('user').value;
+            let pass = document.getElementById('pass').value;
+            const _url = `http://localhost:1269/items/token`;
+                 fetch(_url,{
+                 method: 'POST',
+                 headers: {
+                     'content-type': 'application/json'
+                    },
+                body: JSON.stringify( {
+                    user : user,
+                    pass : pass
+                })
+                })
+                .then(res=>res.json())
+                .then((res)=>{
+                    if(res.message == 'Invalid User credentials'){
+                        document.getElementById('message').innerHTML = res.message;
+                    }
+                    else{
+                        localStorage.setItem("token",JSON.stringify(res.token));
+                        document.location = 'index.html'
+                    }
+                })
+        }
+    </script>
+</head>
+<body>
+    your username:
+    <input type="text"  id="user" placeholder="username">
+
+    <br>
+    password:
+    <input type="password"  id="pass" placeholder="password">
+
+    <input type="button" onclick="login()" value="login">
+    <span id="message"></span>
+    
+</body>
+</html>
