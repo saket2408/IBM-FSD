@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>driving licence</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    #satya{
+        height: 120px;
+        width: 80px;
+        border: 1px solid blue;
+        position: fixed;
+    }
+    #india{
+        background: #0a0752;
+        font-size: 45px;
+        color: white;
+        border-bottom: 10px solid white;
+    }
+    h1{
+        font-size: 55px;
+        color: white;
+    }
+    .input_field
+            {
+                border: none;
+            }
+    input[type="text"][disabled]
+    {
+        background: transparent;
+        border: none;
+        color: black
+    }
+
+</style>
+<script>
+       function display(){
+                document.getElementById('1').disabled = false;
+                document.getElementById('2').disabled = false;
+                document.getElementById('3').disabled = false;
+                document.getElementById('4').disabled = false;
+                document.getElementById('5').disabled = false;
+                document.getElementById('6').disabled = false;
+                document.getElementById('7').disabled = false;
+                document.getElementById('8').disabled = false;
+                document.getElementById('9').disabled = false;
+                document.getElementById('10').disabled = false;
+                document.getElementById('save').style.display= "block";
+
+       }
+       function save(){
+        document.getElementById('1').disabled = true;
+                document.getElementById('2').disabled = true;
+                document.getElementById('3').disabled = true;
+                document.getElementById('4').disabled = true;
+                document.getElementById('5').disabled = true;
+                document.getElementById('6').disabled = true;
+                document.getElementById('7').disabled = true;
+                document.getElementById('8').disabled = true;
+                document.getElementById('9').disabled = true;
+                document.getElementById('10').disabled = true;
+                document.getElementById('save').style.display= "none";
+       }
+</script>
+</head>
+<body>
+    <div class="container"><br><br><br><br><br>
+        <a href="#" onclick="display()" ><span class="fa fa-pencil fa-lg"></span></a>
+        <div style="margin: 0 auto;  width: 80%;">
+                <img src="satyamev.jpg" id="satya">  
+                <div class="row" id="india">
+                        &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <h1>I</h1>NDIAN &nbsp; <h1>U</h1>NION  &nbsp;<h1>D</h1>RIVING &nbsp; <h1>L</h1>ICENCE
+                </div> 
+                <div class="row" id="content" style="background: #3bbffc;">
+                    <div class="row" >
+                        <h4 style="margin-left: 350px; color: blue; ">MADHYA PRADESH STATE</h4>
+                    </div><br>
+                    <div class="row" >
+                        <div class="col-2" style="padding-left: 30px"><br><br>
+                            <img src="chip.jpg" alt="" height="50px" width="50px" style="align-items: right"><br><br>
+                            Org Dl no. <br>
+                            Issued on by
+                        </div>
+                        <div class="col-7"><br><br>
+                           <b>Number:</b>  <input type="text"  id="1" value="MP43N-2016-0014092" disabled>  <br>
+                            <b>Name:</b> <input type="text"  id="2" value="SAKET SAXENA" disabled> <br>
+                            <b>S/D/W of :</b> <input type="text" id="3" value="MUKESH KUMAR SAXENA" disabled> <br>
+                            <b>Address:</b><input type="text"  id="4" value="15-Globus Town Ship, RATLAM, MP" style="width: 450px" disabled><br>
+                            <b>Issued on :</b><input type="text" id="5" value="01-02-2016" disabled> <br>
+                            <b>DOB :</b><input type="text" id="6" value="24-08-1997" disabled> 
+                            <b>BG :</b><input type="text" id="7"  value="AB+ve" disabled><br>
+                            is Licence to drive
+
+                        </div>
+                        <div class="col-3">
+                            form 7  <br>
+                            <img src="photo.jpg" alt="" srcset="" height="200px" width="150px"> <br><br>
+                            <img src="sign.png" alt="" height="50px" width="200px">
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-10" style="padding-left: 40px">
+                            <table border=1>
+                                <tr>
+                                    <td>Vehicle class</td>
+                                    <th>MCWGR</th>
+                                    <th>LMV-NT</th>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                </tr>
+                                <tr>
+                                        <td>Date of issue</td>
+                                        <th><input type="text" id="8" value="01-02-2016" style="width: 150px" disabled></th>
+                                        <th><input type="text"   id="9" value="01-02-2016" style="width: 150px" disabled></th>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                </tr>
+                            </table>
+                            valid till (transport) <br>
+                            valid till (non-transport) <b><input type="text" id="10" value="31-01-2036" disabled></b>
+                        </div>
+                        <div class="col-2"><br>
+                                <img src="sign.png" alt="" height="50px" width="200px" style="padding-left: 40px">
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>  
+                <input type="button" value="Save" onclick="save()" id='save' style="display: none">        
+        </div>
+    </div>
+    
+</body>
+</html>
