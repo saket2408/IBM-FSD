@@ -18,12 +18,24 @@
                         </div>
                     </div>`;
           function showcart(){
+            let _token = localStorage.getItem("token");
             if(localStorage.getItem("token") !=null){
             const _url = `http://localhost:1269/items/cart`;
-            fetch(_url)
+            fetch(_url,{
+                headers : {
+                'token' : JSON.parse(_token)
+            }
+            })
             .then(res=>res.json())
             .then((res)=>{
-                createItem(res);
+                if(res.message!=undefined){
+                localStorage.removeItem('token');
+                alert('session expires. please login again')
+                document.location = 'login.html'
+            }
+          else{
+            createItem(res);
+                }
             })
     }
     else{

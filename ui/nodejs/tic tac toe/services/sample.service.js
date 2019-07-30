@@ -15,7 +15,7 @@ class sampleService {
         MongoClient.connect('mongodb://localhost:27017',(err,conn)=>{
             const id = sample._id;
             delete sample._id;
-            conn.db('tic_tac').collection('sample').update({_id : id},{$set : sample},(err,res)=>{
+            conn.db('tic_tac').collection('sample').update({_id : id},{$set : sample},{upsert:true},(err,res)=>{
                 callback(err,res);
             });
     });
