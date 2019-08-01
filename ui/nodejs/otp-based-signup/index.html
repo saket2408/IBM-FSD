@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+       
+         function otp(){
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            const _url = `http://localhost:46767/security/register`;
+        fetch(_url,{
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify( {
+            email : email,
+            name : name,
+            phone : phone
+        })
+        })
+        .then(res=>res.json())
+        .then((res)=>{
+            document.getElementById('enter_otp').style.display = "block";
+            document.getElementById('main').style.display = "none";
+        })
+    }
+       
+    function validotp(){
+        let otp = document.getElementById('otp_num').value;
+        const _url = `http://localhost:46767/security/validotp`;
+        fetch(_url,{
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify( {
+            otp : otp
+        })
+        })
+        .then(res=>res.json())
+        .then((res)=>{
+            if(res.message == 'valid'){
+                document.location = "password.html"
+            }
+            else if(res.message == 'invalid'){
+                alert('otp expired');
+            }else{
+                alert('invalid otp');
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+    <div id="main">
+    enter your email:
+    <input type="text" name="" id="email" placeholder="enter email"><br>
+    enter your name:
+    <input type="text" name="" id="name" placeholder="enter your name"> <br>
+    phone number:
+    <input type="text" name="" id="phone" placeholder="enter contact number"> <br>
+    <input type="button" value="submit" onclick="otp()">
+</div>
+
+    <div id="enter_otp" style="display: none">
+        <br><br><br>
+        enter your otp:
+        <input type="text" name="" id="otp_num" placeholder="enter otp"><br>
+        <input type="button" value="submit" onclick="validotp()">
+    </div>
+</body>
+</html>
