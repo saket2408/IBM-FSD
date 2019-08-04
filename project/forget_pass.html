@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>QAEngine | Forget password</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+<link href="img/qa.png" rel="icon">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/style.css" rel="stylesheet">
+<!--===============================================================================================-->
+
+<script type="text/javascript">
+
+ function show(){
+	if(localStorage.getItem("token") !=null){
+		document.location = 'home.html'
+        }
+        
+   }
+ function next(){
+     let email = document.getElementById('email').value;
+     const url_ = "http://localhost:1234/user/fetch";
+		fetch(url_, {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify({
+					email: email
+				})
+			}).then(res => res.json())
+			.then((res) => {
+                if(res.message == "email does not exists"){
+                    alert('please enter the correct email address')
+                }
+                else{
+                    document.getElementById('email').disabled = true;
+                    document.getElementById('details').style.display = "block";
+                    document.getElementById('next').style.display = "none";
+                    document.getElementById('que').value = res.user.que;
+                }
+
+
+            })
+ }
+            
+function change(){
+        let email = document.getElementById('email').value;
+        let que = document.getElementById('que').value;
+        let ans = document.getElementById('ans').value;
+     const url_ = "http://localhost:1234/user/fetch";
+		fetch(url_, {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify({
+					email: email
+				})
+			}).then(res => res.json())
+			.then((res) => {
+                if(res.user.que == que && res.user.ans == ans){
+                    document.getElementById('div1').style.display = "none";
+                    document.getElementById('div2').style.display = "block";
+                }
+                else{
+                    alert("response does not match")
+                }
+
+
+            })
+    }
+
+    function updatepass(){
+        let email = document.getElementById('email').value;
+        let pass = document.getElementById('pass').value;
+        let cpass = document.getElementById('cpass').value;
+        if(pass.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/) == null || pass!=cpass){
+
+        }
+        else{
+            const url_ = "http://localhost:1234/user/updateuser";
+		fetch(url_, {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify({
+                    email: email,
+                    password : pass
+				})
+			}).then(res => res.json())
+			.then((res) => {
+                    alert("password changed successfully")
+                    document.location = "login.html"
+
+
+            })
+
+        }
+    }
+ 
+
+    function validatepass(){
+			let pass = document.getElementById('pass').value;
+			let cpass = document.getElementById('cpass').value;
+			if(pass == cpass){
+				document.getElementById('message').innerText = "*password matched"
+				document.getElementById('message').style.color = "green"
+			}
+			else{
+				document.getElementById('message').innerText = "*password does not  match"
+				document.getElementById('message').style.color = "red"
+			}
+		}
+	
+</script>
+</head>
+<body onload="show()">
+		<header id="header">
+				<div class="container-fluid">
+			
+				  <div id="logo" class="pull-left">
+					<h1><a href="index.html"  style="color: black">QAEngine</a></h1>
+				  </div>
+				  <nav id="nav-menu-container">
+						<ul class="nav-menu">
+						  <li class="menu-active"><a href="index.html" style="color: black">Home</a></li>
+						  <li><a href="login.html" style="color: black">Login</a></li>
+						</ul>
+					  </nav>
+				</div>
+			  </header><!-- #header -->
+	
+	<div class="limiter" id="div1">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<h2>Enter your email to reset password</h2>
+					<div class="wrap-input100 m-b-16" >
+						<input class="input100" type="text" name="username" id="email" placeholder="your email">
+						<span class="focus-input100"></span>
+					</div>
+
+                <div id="details" style="display: none">
+					<label>Security Question:</label>
+					<div class="wrap-input100  m-b-16" >	
+							<input class="input100" type="text" name="que" id="que"  disabled>
+							<span class="focus-input100"></span>
+					</div>
+					<label>Security answer:</label>
+					<div class="wrap-input100  m-b-16" data-validate="enter your response">
+							<input class="input100" type="text" name="ans" id="ans" placeholder="your response">
+							<span class="focus-input100"></span>
+                    </div>
+                    <div class="container-login100-form-btn">
+                            <input type="button" class="login100-form-btn" value="change password" onclick="change()">
+                    </div>
+                    
+                </div>
+					<div class="container-login100-form-btn" id="next">
+						<input type="button" class="login100-form-btn" value="Next" onclick="next()">
+					</div>
+
+					<div class="flex-col-c p-t-170 p-b-40">
+					</div>
+				</form>
+			</div>
+		</div>
+    </div>
+    
+    <div class="limiter" id="div2" style="display: none">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="password should contain atleast 1 uppercase, 1 lowercase, 1 special character, 1 number and should be 8 characters long">
+                            <input class="input100" type="password" name="pass" id="pass" placeholder="Password">
+                            <span class="focus-input100"></span>
+                        </div>
+    
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please confirm password">
+                                <input class="input100" type="password" name="cpass" id="cpass" placeholder="confirm Password" onkeyup="validatepass()">
+                                <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Please enter password">
+                                <span class="focus-input100" style="color: red" id="message"></span>
+                            </div>
+                            <br><br>
+                        
+                        <div class="container-login100-form-btn" id="next">
+                            <input type="button" class="login100-form-btn" value="submit" onclick="updatepass()">
+                        </div>
+    
+                        <div class="flex-col-c p-t-170 p-b-40">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+	
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+
+
+</body>
+</html>
