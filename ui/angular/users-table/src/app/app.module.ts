@@ -3,15 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-import { TestComponent } from './test/test.component';
-import { PowerPipe } from './power.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    TestComponent,
-    PowerPipe
+    UserComponent
   ],
   imports: [
     BrowserModule

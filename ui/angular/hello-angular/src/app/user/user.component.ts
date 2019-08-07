@@ -27,8 +27,8 @@ export class UserComponent implements OnInit {
         name : "ram"
       }
     ]
-    //this.showtable = true
-    this.showtable = false
+    this.showtable = true
+    //this.showtable = false
   }
 }
   interface user{

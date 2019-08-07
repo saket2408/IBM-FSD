@@ -1,1 +1,17 @@
-<p>test works!</p>
+<b>your message is:</b> <span>{{message}}</span>
+
+<table border = 1>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>date</th>
+    </tr>
+    <tr *ngFor = 'let e of emps'>
+        <td>{{e.id | power : 2}}</td>
+        <td>{{e.name | uppercase}}</td>
+        <td>{{e.date | date:"H/m/s"}}</td>
+    </tr>
+
+    
+</table>
+<input type="button" value="click me" (click) = "getdetails()">

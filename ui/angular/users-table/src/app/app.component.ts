@@ -6,11 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello-angular';
-  _msg = "saket saxena";
-  message: any
+  title = 'users-table';
+  active: number
+  inactive : number
 
-  getdetails($event){
-      this.message = $event;
+  getactivecount($event){
+    this.active = $event;
+  }
+  getinactivecount($event){
+    this.inactive = $event;
   }
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+      let data = {
+          countries : ["india", "pakistan", "usa"],
+          india : ["mp","up", "maharastra"],
+          pakistan : ["punjab"],
+          usa : ["maimi","florida", "washinton"],
+          mp : ["bhopal","indore"],
+          up : ["lucknow", "ayodhya"],
+          maharastra : ["mumbai","pune"],
+          punjab : ["ygfd","yrgy"],
+          maimi  : ["sakey", "saxena"],
+          florida : ["ram", "murti"],
+          washinton : ["mc", "bc"]
+
+      }
+
+      function showcountry(){
+          option = '<option value=""> --select state--</option>'
+            data.countries.forEach((e)=>{
+                option += `<option value="${e}">${e}</option>`
+            })
+            document.getElementById('country').innerHTML = option;
+      }
+
+      function showstate(){
+          option='<option value=""> --select state--</option>'
+          let country = document.getElementById('country').value;
+          data[country].forEach((e)=>{
+                option += `<option value="${e}">${e}</option>`
+            })
+            document.getElementById('state').innerHTML = option;
+
+      }
+
+      function showcity(){
+          option='<option value=""> --select city--</option>'
+          let state = document.getElementById('state').value;
+          data[state].forEach((e)=>{
+                option += `<option value="${e}">${e}</option>`
+            })
+            document.getElementById('city').innerHTML = option;
+
+      }
+    </script>
+</head>
+<body onload="showcountry()">
+    <select name="country" id="country" onchange="showstate()">
+
+    </select>
+    <select name="country" id="state" onchange="showcity()">
+
+        </select>
+    
+        <select name="country" id="city" >
+
+            </select>
+    
+</body>
+</html>

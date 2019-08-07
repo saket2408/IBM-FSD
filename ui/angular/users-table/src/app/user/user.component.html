@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>Id</th>
+        <th>name</th>
+        <th>Age</th>
+        <th><input type="button" value="add" (click) = "addemp()"></th>
+
+    </tr>
+    <tr *ngFor = "let e of users">
+        <td>{{e.id}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.age}}</td>
+        <td><input type="button" value="delete" (click) = 'delemp(e.id)'></td>
+    </tr>
+</table>
+
