@@ -85,6 +85,8 @@
 
         }
         else {
+		total = total-price;
+		document.getElementById('total').value = total;
             const _url = `http://localhost:1269/items/findCart`;
             fetch(_url,{
             method: 'POST',
