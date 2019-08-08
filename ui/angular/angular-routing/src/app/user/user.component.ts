@@ -18,5 +18,8 @@ export class UserComponent implements OnInit {
     this.router.navigate(['edit' , this.route.snapshot.params.id, this.route.snapshot.params.id1 ]);
 
   }
+  gotoQuery(){
+    this.router.navigate(['params'] , {queryParams : {id : 7,  name : "saket"}})
+  }
 
 }

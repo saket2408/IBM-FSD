@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { UserComponent } from './user/user.component';
 import { EditComponent } from './edit/edit.component';
+import { QueryParamsComponent } from './query-params/query-params.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EditComponent } from './edit/edit.component';
     HomeComponent,
     AboutusComponent,
     UserComponent,
-    EditComponent
+    EditComponent,
+    QueryParamsComponent
   ],
   imports: [
     BrowserModule,

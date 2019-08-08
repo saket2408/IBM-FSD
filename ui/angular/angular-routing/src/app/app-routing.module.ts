@@ -4,6 +4,7 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { EditComponent } from './edit/edit.component';
+import { QueryParamsComponent } from './query-params/query-params.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path : 'edit/:uid/:uid2',
     component : EditComponent
+  },
+  {
+    path : 'params',
+    component : QueryParamsComponent
   },
   {
     path : '**',
