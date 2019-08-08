@@ -3,18 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserModule } from './user/user.module';
-import { RohitComponent } from './rohit/rohit.component';
+import {FormsModule} from '@angular/forms';
+import { ViewComponent } from './view/view.component';
+import { AddComponent } from './add/add.component';
+import { DeleteComponent } from './delete/delete.component';
+import { EditComponent } from './edit/edit.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    RohitComponent
+    ViewComponent,
+    AddComponent,
+    DeleteComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

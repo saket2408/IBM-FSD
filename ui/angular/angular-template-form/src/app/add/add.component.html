@@ -1,0 +1,8 @@
+<fieldset>
+    <legend>add user</legend>
+    <form #addForm = "ngForm" (submit) = "add(addForm.value)">
+        <input type="text" name="name" placeholder="name" ngModel>
+        <input type="email" name="email" placeholder="email" ngModel>
+        <input type="submit" value="add">
+    </form>
+</fieldset>

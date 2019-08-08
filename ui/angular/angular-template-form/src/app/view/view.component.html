@@ -1,0 +1,14 @@
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+    </tr>
+    <tr *ngFor = 'let u of users'>
+        <td>{{u.id}}</td>
+        <td>{{u.name}}</td>
+        <td>{{u.email}}</td>
+        <td><a [routerLink]= "['/delete' , u.id]">delete</a></td>
+        <td><a [routerLink]= "['/edit', u.id]">edit</a></td>
+    </tr>
+</table>
