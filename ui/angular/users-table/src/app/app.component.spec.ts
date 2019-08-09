@@ -1,11 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { UserComponent } from './user/user.component';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        UserComponent
       ],
     }).compileComponents();
   }));
@@ -28,4 +31,18 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to users-table!');
   });
+
+  it('should render active as number',() =>{
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    app.getactivecount(4)
+    expect(app.active).toBe(4)
+  })
+
+  it('should render inactive as number',() =>{
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    app.getinactivecount(4)
+    expect(app.inactive).toBe(4) 
+  })
 });
