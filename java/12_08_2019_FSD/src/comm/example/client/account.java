@@ -79,6 +79,17 @@ public class account {
 		return true;
 	}
 	
+	//khud kaa bana equals function
+	public boolean equality(Object obj) {
+		account a = (account)obj;
+		if((this.accountNumber == a.accountNumber) && (a.name==this.name) && (this.lastname == a.lastname)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	
 	
 	
