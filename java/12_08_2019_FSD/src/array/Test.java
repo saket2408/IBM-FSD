@@ -25,9 +25,9 @@ public abstract class Test {
 		array.push(2);
 		array.pop();
 		array.pop();
-		
-		//variable arguments
-		System.out.println(array.add(1,2,3,4,5,6,7,8,9));
+
+		// variable arguments
+		System.out.println(array.add(1, 2, 3, 4, 5, 6, 7, 8, 9));
 
 	}
 
