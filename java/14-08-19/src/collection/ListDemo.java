@@ -11,10 +11,12 @@ public class ListDemo {
 		list.add("saxena");
 		list.add("saket");
 		
+		
 		Iterator<String> i = list.iterator();
 		
 		while(i.hasNext()) {
 			System.out.println(i.next());
+			
 		}
 		
 		System.out.println(list);
