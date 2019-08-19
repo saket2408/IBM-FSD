@@ -33,6 +33,34 @@ class CRUD {
 			
 		case 2:
 			student.viewStudents();
+			break;
+		case 3:
+			System.out.println("enter id to delete: ");
+			id = scanner.next();
+			try {
+				student.deleteStudent(id);
+			} catch (ObjectNotFoundException e) {
+				System.err.println(e.getMessage());
+			}
+			break;
+		case 4:
+			System.out.println("enter id where to update:");
+			id = scanner.next();
+			System.out.println("enter name:");
+			name = scanner.next();
+			System.out.println("enter GPA:");
+			gpa = scanner.nextDouble();
+			try {
+				student.updateStudent(id,name,gpa);
+			} catch (ObjectNotFoundException e) {
+				System.err.println(e.getMessage());
+			}
+			break;
+			
+		default:
+			System.err.println("enter correct choice");
+			
+			
 		}
 		}
 		while(true);

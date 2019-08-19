@@ -1,9 +1,10 @@
 package CRUD;
 
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Student implements Comparable<Object> {
+public class Student  implements Comparable<Object>{
 	private String id;
 	private String name;
 	private double gpa;
@@ -58,6 +59,51 @@ public class Student implements Comparable<Object> {
 		for(Student s: list)
 		System.out.println(s);
 	}
+	
+	public void deleteStudent(String id) throws ObjectNotFoundException {
+		boolean flag = false;
+		for(Student s: list) {
+			if(s.getId().equals(id))
+				{
+				list.remove(s);
+				flag =true;
+				break;
+				}
+			else {
+				
+			}
+		}
+		if(flag == true) {
+			System.out.println("item deleted!!");
+		}
+		else {
+			throw new ObjectNotFoundException("Wrong index entered. try entering correct id..");
+		}
+	}
+	
+	public void updateStudent(String id, String name, double gpa) throws ObjectNotFoundException {
+		boolean flag = false;
+		for(Student s: list) {
+			if(s.getId().equals(id))
+				{
+				s.setName(name);
+				s.setGpa(gpa);
+				flag =true;
+				break;
+				}
+			else {
+				
+			}
+		}
+		if(flag == true) {
+			System.out.println("item updated!!");
+		}
+		else {
+			throw new ObjectNotFoundException("Wrong index entered. try entering correct id..");
+		}
+	}
+	
+	
 	@Override
 	public int compareTo(Object o) {
 		Student s = (Student)o;
