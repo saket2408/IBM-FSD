@@ -69,9 +69,7 @@ public class Student  implements Comparable<Object>{
 				flag =true;
 				break;
 				}
-			else {
-				
-			}
+			
 		}
 		if(flag == true) {
 			System.out.println("item deleted!!");
@@ -91,9 +89,7 @@ public class Student  implements Comparable<Object>{
 				flag =true;
 				break;
 				}
-			else {
-				
-			}
+		
 		}
 		if(flag == true) {
 			System.out.println("item updated!!");
