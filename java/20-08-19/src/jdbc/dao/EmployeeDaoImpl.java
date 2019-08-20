@@ -48,6 +48,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			pStatement = connection.prepareStatement("select * from employee where id=?");
 			pStatement.setInt(1, id);
 			resultSet = pStatement.executeQuery();
+			ResultSetMetaData dMetaData = resultSet.getMetaData();
 			resultSet.next();
 			 e = new Employee(resultSet.getInt(1), resultSet.getString(2),
 					resultSet.getString(3), resultSet.getString(4));
@@ -73,6 +74,18 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			e.printStackTrace();
 		} finally {
 		}
+	}
+	
+	@Override
+	public void getConnectioninfo() {
+		try {
+			DatabaseMetaData dMetaData = connection.getMetaData();
+			System.out.println(dMetaData.getDatabaseMajorVersion());
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		
 	}
 
 }

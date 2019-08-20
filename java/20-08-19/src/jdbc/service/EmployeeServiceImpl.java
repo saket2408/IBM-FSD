@@ -1,5 +1,6 @@
 package jdbc.service;
 
+import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -36,5 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		return dao.getEmployeeById(id);
 	}
+	@Override
+	public void getConnectioninfo() {
+		dao.getConnectioninfo();
+	}
+	
 
 }

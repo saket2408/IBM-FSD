@@ -57,7 +57,7 @@ public class EmployeeTester {
 				break;
 
 			default:
-				System.out.println("Invalid choice.");
+				service.getConnectioninfo();
 				break;
 
 			}
