@@ -1,4 +1,4 @@
-package samplejframe;
+package frameUsingBuilder;
 
 import java.awt.EventQueue;
 
@@ -22,6 +22,7 @@ import jdbc.service.EmployeeServiceImpl;
 
 import com.jgoodies.forms.layout.FormSpecs;
 import net.miginfocom.swing.MigLayout;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Font;
@@ -103,7 +104,7 @@ public class DemiFrame {
 		});
 		btnSubmit.setBackground(Color.LIGHT_GRAY);
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSubmit.setBounds(103, 227, 89, 23);
+		btnSubmit.setBounds(30, 227, 89, 23);
 		frmFdf.getContentPane().add(btnSubmit);
 		
 		JButton btnNewButton = new JButton("Reset");
@@ -117,7 +118,7 @@ public class DemiFrame {
 		});
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton.setBounds(235, 227, 109, 23);
+		btnNewButton.setBounds(161, 227, 109, 23);
 		frmFdf.getContentPane().add(btnNewButton);
 		
 		JLabel lblFirstName = new JLabel("First Name: ");
@@ -207,8 +208,19 @@ public class DemiFrame {
 		});
 		btnUpdateElementBy.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnUpdateElementBy.setBackground(Color.LIGHT_GRAY);
-		btnUpdateElementBy.setBounds(366, 227, 117, 23);
+		btnUpdateElementBy.setBounds(325, 227, 117, 23);
 		frmFdf.getContentPane().add(btnUpdateElementBy);
+		
+		JButton btnShowEmployee = new JButton("show employee");
+		btnShowEmployee.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new DemiFrame2();
+			}
+		});
+		btnShowEmployee.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnShowEmployee.setBackground(Color.LIGHT_GRAY);
+		btnShowEmployee.setBounds(505, 227, 163, 23);
+		frmFdf.getContentPane().add(btnShowEmployee);
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
