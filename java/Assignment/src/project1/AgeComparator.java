@@ -37,7 +37,15 @@ public class AgeComparator implements Comparator<Object> {
 		Employee s1 = (Employee) o1;
 		Employee s2 = (Employee) o2;
 		if (s1.getAge() == s2.getAge()) {
-			return 0;
+			if (s1.getDateOfJoining() == s2.getDateOfJoining()) {
+				return 0;
+			} 
+			else if (s1.getDateOfJoining().after(s2.getDateOfJoining())) {
+				return 1;
+			}
+			else {
+				return -1;
+			}
 		} 
 		else if (s1.getAge() > s2.getAge()) {
 			return 1;

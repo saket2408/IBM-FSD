@@ -42,5 +42,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 		dao.getConnectioninfo();
 	}
 	
+	@Override
+	public int deleteEmployee(int id) {
+		
+		return dao.deleteEmployee(id);
+	}
+
+
+	@Override
+	public int updateEmployee(Employee employee) {
+		
+		return dao.updateEmployee(employee);
+	}
 
 }

@@ -9,5 +9,7 @@ public interface EmployeeService {
 	public List<Employee> getAllEmployees();
 	public Employee getEmployeeById(int id);
 	void getConnectioninfo();
+	int deleteEmployee(int id);
+	int updateEmployee(Employee employee);
 
 }

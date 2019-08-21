@@ -15,6 +15,11 @@ import javax.swing.GroupLayout.Alignment;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import jdbc.model.Employee;
+import jdbc.service.EmployeeService;
+import jdbc.service.EmployeeServiceImpl;
+
 import com.jgoodies.forms.layout.FormSpecs;
 import net.miginfocom.swing.MigLayout;
 import java.awt.GridBagLayout;
@@ -35,6 +40,10 @@ public class DemiFrame {
 	private JTextField textField_1;
 	private final Action action = new SwingAction();
 	private final Action action_1 = new SwingAction_1();
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private EmployeeService service = new EmployeeServiceImpl();
+	private JTextField textField_4;
 
 	/**
 	 * Launch the application.
@@ -64,41 +73,37 @@ public class DemiFrame {
 	 */
 	private void initialize() {
 		frmFdf = new JFrame();
-		frmFdf.setTitle("login");
-		frmFdf.setBounds(100, 100, 450, 300);
+		frmFdf.setTitle("CRUD employee");
+		frmFdf.setBounds(100, 100, 735, 300);
 		frmFdf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFdf.getContentPane().setLayout(null);
 		
-		JLabel lblUserName = new JLabel("User Name:");
+		JLabel lblUserName = new JLabel("Employee ID:");
 		lblUserName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblUserName.setBounds(10, 21, 109, 22);
 		frmFdf.getContentPane().add(lblUserName);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textField.setBounds(106, 24, 200, 19);
+		textField.setBounds(129, 22, 200, 19);
 		frmFdf.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblPassword = new JLabel("Password: ");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPassword.setBounds(10, 68, 92, 14);
-		frmFdf.getContentPane().add(lblPassword);
-		
 		textField_1 = new JTextField();
-		textField_1.setBounds(106, 67, 200, 20);
+		textField_1.setBounds(129, 64, 200, 20);
 		frmFdf.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frmFdf, "success: " + textField.getText().toString() + " successfully logged in!!");
+				service.createEmployee(new Employee(Integer.parseInt(textField.getText().toString()), textField_1.getText(),textField_2.getText() , textField_3.getText()));
+				JOptionPane.showMessageDialog(frmFdf, "success: " + textField_3.getText().toString() + " successfully added!!");
 			}
 		});
 		btnSubmit.setBackground(Color.LIGHT_GRAY);
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSubmit.setBounds(30, 133, 89, 23);
+		btnSubmit.setBounds(103, 227, 89, 23);
 		frmFdf.getContentPane().add(btnSubmit);
 		
 		JButton btnNewButton = new JButton("Reset");
@@ -106,12 +111,104 @@ public class DemiFrame {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("");
 				textField_1.setText("");
+				textField_2.setText("");
+				textField_3.setText("");
 			}
 		});
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton.setBounds(144, 133, 109, 23);
+		btnNewButton.setBounds(235, 227, 109, 23);
 		frmFdf.getContentPane().add(btnNewButton);
+		
+		JLabel lblFirstName = new JLabel("First Name: ");
+		lblFirstName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblFirstName.setBounds(10, 67, 99, 14);
+		frmFdf.getContentPane().add(lblFirstName);
+		
+		JLabel lblLastName = new JLabel("Last Name: ");
+		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblLastName.setBounds(10, 117, 99, 14);
+		frmFdf.getContentPane().add(lblLastName);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(129, 111, 200, 20);
+		frmFdf.getContentPane().add(textField_2);
+		
+		JLabel lblEmail = new JLabel("Email: ");
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblEmail.setBounds(10, 162, 99, 14);
+		frmFdf.getContentPane().add(lblEmail);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(129, 156, 200, 20);
+		frmFdf.getContentPane().add(textField_3);
+		
+		JLabel label = new JLabel("Employee ID:");
+		label.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		label.setBounds(519, 21, 109, 22);
+		frmFdf.getContentPane().add(label);
+		
+		textField_4 = new JTextField();
+		textField_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		textField_4.setColumns(10);
+		textField_4.setBounds(468, 54, 200, 19);
+		frmFdf.getContentPane().add(textField_4);
+		
+		JButton btnFindElementBy = new JButton("Find element by id");
+		btnFindElementBy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent a) {
+				Employee e = service.getEmployeeById(Integer.parseInt(textField_4.getText().toString()));
+				if(e==null) {
+					JOptionPane.showMessageDialog(frmFdf, "error: not found!!");
+				}
+				else {
+					textField.setText(""+e.getId()+"");
+					textField_1.setText(e.getFirstName());
+					textField_2.setText(e.getLastName());
+					textField_3.setText(e.getEmail());
+				}
+			}
+		});
+		btnFindElementBy.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnFindElementBy.setBackground(Color.LIGHT_GRAY);
+		btnFindElementBy.setBounds(468, 94, 200, 23);
+		frmFdf.getContentPane().add(btnFindElementBy);
+		
+		JButton btnDeleteElementBy = new JButton("delete element by id");
+		btnDeleteElementBy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int count = service.deleteEmployee(Integer.parseInt(textField_4.getText().toString()));
+				if(count == 1) {
+					JOptionPane.showMessageDialog(frmFdf, "success: employee deleted!!");
+				}
+				else {
+					JOptionPane.showMessageDialog(frmFdf, "error: not found!!");
+				}
+			}
+		});
+		btnDeleteElementBy.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnDeleteElementBy.setBackground(Color.LIGHT_GRAY);
+		btnDeleteElementBy.setBounds(468, 128, 200, 23);
+		frmFdf.getContentPane().add(btnDeleteElementBy);
+		
+		JButton btnUpdateElementBy = new JButton("update");
+		btnUpdateElementBy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int count = service.updateEmployee(new Employee(Integer.parseInt(textField.getText().toString()), textField_1.getText(),textField_2.getText() , textField_3.getText()));
+				if(count == 1) {
+					JOptionPane.showMessageDialog(frmFdf, "success: employee updated!!");
+				}
+				else {
+					JOptionPane.showMessageDialog(frmFdf, "error: not found!!");
+				}
+			}
+		});
+		btnUpdateElementBy.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnUpdateElementBy.setBackground(Color.LIGHT_GRAY);
+		btnUpdateElementBy.setBounds(366, 227, 117, 23);
+		frmFdf.getContentPane().add(btnUpdateElementBy);
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {

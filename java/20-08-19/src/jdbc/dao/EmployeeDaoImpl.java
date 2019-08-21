@@ -87,5 +87,38 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}
 		
 	}
+	
+	@Override
+	public int deleteEmployee(int id)  {
+		int count = 0;
+		try {
+			pStatement = connection.prepareStatement("delete  from employee where ID= ?");
+			pStatement.setInt(1, id);
+			count = pStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	@Override
+	public int updateEmployee(Employee employee) {
+		int count=0;
+		try {
+			pStatement = connection.prepareStatement("update employee set firstname =?, lastname=?, email=? where ID=?");
+			pStatement.setInt(4, employee.getId());
+			pStatement.setString(1, employee.getFirstName());
+			pStatement.setString(2, employee.getLastName());
+			pStatement.setString(3, employee.getEmail());
+			
+			count = pStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+		
+	}
 
 }
