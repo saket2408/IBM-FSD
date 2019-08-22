@@ -7,6 +7,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -61,14 +62,14 @@ public class FileProject {
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					FileWriter out = new FileWriter(new java.io.File("out.txt"));
+					FileWriter out = new FileWriter(new File("out.txt"));
 					String s = textArea.getText();
 					for(int i = 0; i<s.length();i++) {
 						out.write(s.charAt(i));
 					}
 					out.close();
 					textArea.setText("");
-				} catch (IOException e1) {
+				} catch (IOException e1) { 
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -81,7 +82,7 @@ public class FileProject {
 		btnRead.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					FileReader in = new FileReader(new java.io.File("out.txt"));
+					FileReader in = new FileReader(new File("out.txt"));
 					int c;
 					String s ="";
 					while((c=in.read())!=-1) {
