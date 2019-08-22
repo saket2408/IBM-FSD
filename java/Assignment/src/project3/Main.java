@@ -38,6 +38,16 @@ public class Main {
 			k++;
 		}
 		
+		for(int i = 0;i<k;i++) {
+			for(int j=i+1;j<k;j++) {
+				if(country[i].getName().compareToIgnoreCase(country[j].getName()) > 0) {
+					Country temp = country[j];
+					country[j] = country[i];
+					country[i] = temp;
+				}
+			}
+		}
+		
 		for(int i=0;i<k;i++) {
 			System.out.println(country[i].getName());
 			Set<State> stateList = country[i].getStateList();
