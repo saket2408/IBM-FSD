@@ -10,6 +10,7 @@ public class Main {
 		TreeMap<Character, Integer> frequency = new TreeMap<Character,Integer>();
 		System.out.println("Enter input string:");
 		String sentence = scanner.nextLine();
+		sentence = sentence.replaceAll("\\s", "");
 		LetterSequence letter = new LetterSequence(sentence);
 		frequency = letter.computeFrequency();
 		letter.displayLetterFrequency(frequency);
