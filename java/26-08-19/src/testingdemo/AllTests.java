@@ -8,19 +8,8 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestCalculator.class })
+@SuiteClasses({ TestCalculator.class, TestDemo.class })
 
 public class AllTests extends TestCase {
-	
-	public AllTests() {
-	TestSuite testsuite = new TestSuite("AllTest");
-	
-	}
-
-
-
-public static void main(String args[]) {
-	junit.textui.TestRunner.run(new AllTests());
-}
 
 }
