@@ -18,7 +18,6 @@ public class MutliServer {
 
 	private JFrame frame;
 	private JTextArea textArea = new JTextArea();
-
 	/**
 	 * Launch the application.
 	 */
@@ -44,7 +43,9 @@ public class MutliServer {
 	}
 	
 	public void serverMethod() throws IOException {
+		
 		textArea.setText("djndsn");
+		
 		int portnumber = 1236;
 		String s = "";
 		// Create a MulticastSocket
@@ -72,7 +73,7 @@ public class MutliServer {
 			String msg = new String(data.getData()).trim();
 			System.out.println("Message received from client = " + msg);
 			s+= "\n Message received from client = " +msg;
-			textArea.setText(s);
+			textArea.append(s);
 
 		}	
 		
@@ -92,6 +93,8 @@ public class MutliServer {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		textArea.setBounds(76, 22, 287, 145);
+		frame.getContentPane().add(textArea);
 
 		JButton btnStartServer = new JButton("Start Server");
 		btnStartServer.addActionListener(new ActionListener() {
@@ -108,9 +111,7 @@ public class MutliServer {
 		});
 		btnStartServer.setBounds(225, 191, 111, 23);
 		frame.getContentPane().add(btnStartServer);
-
-		textArea.setBounds(76, 22, 287, 145);
-		frame.getContentPane().add(textArea);
+		
 	}
 
 }
