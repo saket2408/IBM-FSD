@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>add league</title>
+</head>
+<body>
+<h1>Add a new league</h1>
+<form id="form-1" action="add_league.do" method="post">
+	<label for="input-1">enter the title:</label>
+	<input id="input-1" name="title" required="true" type="text"/><br>
+	<label for="input-2">enter year:</label>
+	<input id="input-2" name="year" required="true" type="text"/><br>
+	<label for="input-3">select season:</label>
+	<select name="season" id="input-3">
+		<option value="unknown">--select season--</option>
+		<option value="winter">winter</option>
+		<option value="summer">summer</option>
+		<option value="autumn">autumn</option>
+		<option value="spring">spring</option>
+	</select><br><br>
+	<input type="submit" value="add" id="button-1"/>
+	&nbsp;
+	<input type="reset" value="Reset" id="button-2"/>
+</form>
+</body>
+</html>
