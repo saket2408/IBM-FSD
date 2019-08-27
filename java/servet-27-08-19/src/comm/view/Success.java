@@ -33,6 +33,7 @@ public class Success extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		pw.println("<h1 style = 'color:green'>ADDED SUCCESSFULLY</h1>");
 		pw.println("<ol><li>title: "+l.getTitle()+"</li><li>season: "+l.getSeason()+"</li><li>year: "+l.getiYear()+"</li></ol>");
+		pw.println("<br><a href='index.html'>return home</a>");
 	}
 
 
