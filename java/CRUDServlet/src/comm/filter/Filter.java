@@ -7,6 +7,7 @@ import javax.servlet.DispatcherType;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -55,6 +56,8 @@ public class Filter implements javax.servlet.Filter {
 			r.forward(request, response);
 
 		} else {
+			ServletContext context=request.getServletContext();
+			context.setAttribute("name", name);
 			chain.doFilter(request, response);
 		}
 	}

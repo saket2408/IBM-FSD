@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -66,6 +67,8 @@ public class ViewEmployee extends HttpServlet {
 				"</head>\r\n" + 
 				"<body>");
 		pw.println("<a href='index.html' class='btn btn-info' role='button'>add new employee</a><br><br><br>");
+		ServletContext context = request.getServletContext();
+		pw.println("Welcome "+ context.getAttribute("name"));
 		
 		pw.println("<table class='table table-striped'><tr><th>ID</th><th>NAME</th><th>PASSWORD</th><th>EMAIL</th><th>COUNTRY</th><th>EDIT</th><th>DELETE</th></tr>");
 		EmployeeDao emp = new EmployeeDaoImpl();
@@ -78,6 +81,7 @@ public class ViewEmployee extends HttpServlet {
 			}
 		}
 		pw.println("</table>");
+		
 		
 	}
 
