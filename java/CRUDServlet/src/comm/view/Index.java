@@ -96,7 +96,7 @@ public class Index extends HttpServlet {
 				"  </div>\r\n" + 
 				"  \r\n" + 
 				"  <button type='submit' class='btn btn-primary'>Submit</button>\r\n" + 
-				"  <a href='view_employee' class='btn btn-info' role='button'>view Employees</a>\r\n" + 
+				"  <a href='login' class='btn btn-info' role='button'>view Employees</a>\r\n" + 
 				"</form>\r\n" + 
 				"\r\n" + 
 				"</body>\r\n" + 

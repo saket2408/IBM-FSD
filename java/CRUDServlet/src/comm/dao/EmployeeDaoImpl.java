@@ -70,6 +70,20 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		ps.setString(4, e.getCountry());
 		ps.setInt(5, e.getId());
 		ps.executeUpdate();
-		
+
+	}
+
+	@Override
+	public int findEmploye(String name, String password) throws SQLException {
+		ps = connection.prepareStatement("select * from users where name=? && password=?");
+		ps.setString(1, name);
+		ps.setString(2, password);
+		ResultSet rs = ps.executeQuery();
+		int count =0;
+		while(rs.next()) {
+			count++;
+		}
+		return count;
+
 	}
 }
