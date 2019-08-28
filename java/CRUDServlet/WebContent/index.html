@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='ISO-8859-1'>
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+
+<!-- jQuery library -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
+<!-- Popper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
+
+<!-- Latest compiled JavaScript -->
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+</head>
+<body>
+<h1>ADD EMPLOYEE</h1><br>
+
+	<form action='add_employee.view' method='post'>
+  <div class='form-group'>
+    <label for='name'>Name:</label>
+    <input type='name' class='form-control' id='name' name='name' required>
+  </div>
+  <div class='form-group'>
+    <label for='password'>Password:</label>
+    <input type='password' class='form-control' id='password' name='password' required>
+  </div>
+   <div class='form-group'>
+    <label for='email'>Email:</label>
+    <input type='email' class='form-control' id='email' name='email' required>
+  </div>
+  
+   <div class='form-group'>
+    <label for='country'>country:</label>
+    <select name='country'>
+    	<option value='unknown'>--select--</option>
+    	<option value='india'>India</option>
+    	<option value='pakistan'>Pakistan</option>
+    	<option value='USA'>USA</option>
+    	<option value='UK'>UK</option>
+    	<option value='others'>others</option>
+    </select>
+  </div>
+  
+  <button type='submit' class='btn btn-primary'>Submit</button>
+  <a href='view_employee' class='btn btn-info' role='button'>view Employees</a>
+</form>
+
+</body>
+</html>
