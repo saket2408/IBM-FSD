@@ -82,8 +82,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		int count =0;
 		while(rs.next()) {
 			count++;
+			
 		}
 		return count;
-
+		
 	}
 }
