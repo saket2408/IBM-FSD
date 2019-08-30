@@ -37,6 +37,7 @@
         <th>Price</th>
         <th>Category</th>
          <th>Quantity</th>
+         <th></th>
       </tr>
   
 <c:if test="${cart!=null}">
@@ -47,6 +48,12 @@
         <td>${c.getPrice()}</td>
         <td>${c.getCategory()}</td>
          <td>${c.getQuantity()}</td>
+		<td><form id="form-1" method="post" action="addCart.view" ">
+			 <input name="action" value="delete" type="hidden"/>
+			 <input name="name" value="${c.getName()}" type="hidden"/>
+			 <input type="submit" value="delete" class="btn btn-danger"/>
+			 </form>
+		</td>   
       </tr>
  </c:forEach>
 </c:if>
