@@ -2,7 +2,7 @@ package abstract_class;
 
 public class a {
 
-	public void process() throws Exception{
+	public void process(){
 		System.out.println("a");
 	}
 
