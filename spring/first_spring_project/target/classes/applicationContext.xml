@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<context:property-placeholder location="classpath:coach.properties"/>
+<!-- NORMAL BEAN with init and destroy method-->
+<bean name="baseballCoach" class="comm.myCompany.first_spring_project.beans.BaseballCoach" init-method="sayHello" destroy-method="sayGoodbye"></bean>
+
+<!-- CONTRUCTOR BEAN -->
+	<bean name="theEmployee" class="comm.myCompany.first_spring_project.beans.Employee">
+		<constructor-arg value="1"></constructor-arg>
+		<constructor-arg name="fname" value="saket"></constructor-arg>
+		<constructor-arg name="lname" value="saxena"></constructor-arg>
+		<constructor-arg value="sa@gg.cok"></constructor-arg>
+	</bean>
+	
+	<!-- NORMAL BEAN -->
+	<bean name="service" class="comm.myCompany.first_spring_project.beans.CoachService"></bean>
+	
+	<!-- SETTER BEAN -->
+	<bean name="cricCoach" class="comm.myCompany.first_spring_project.beans.CricketCoach">
+		<property name="service" ref="service"></property>
+		
+		<!-- setting properties from properties file -->
+		<property name="name" value="${foo.name}"></property>
+		<property name="email" value="${foo.email}"></property>
+	</bean>
+</beans>
