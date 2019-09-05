@@ -8,14 +8,19 @@ import javax.sql.DataSource;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import comm.spring_annotation.bean.empService;
+
 public class TestDBMS {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args){
 		 ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		 DataSource ds = (DataSource) context.getBean("datasource");
-		 Connection conn = ds.getConnection();
-		 PreparedStatement pst = conn.prepareStatement("insert into employee(firstname) values('saket')");
-		 pst.executeUpdate();
+		 empService service=context.getBean("empService",empService.class);
+		try {
+			service.createEmployee("rahul", "Dravid", "wall@gg.com");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
