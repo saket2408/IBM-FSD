@@ -9,5 +9,5 @@ public interface CustomerService {
 	public List<Customer> viewCustomers();
 	public void deleteCustomer(int id);
 	public Customer getCustomer(int id);
-	public void update(int id, Customer customer);
+	public void update(Customer customer);
 }

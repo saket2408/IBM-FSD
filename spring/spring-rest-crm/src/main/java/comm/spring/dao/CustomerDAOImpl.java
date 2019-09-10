@@ -54,10 +54,9 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 	
 	@Transactional
-	public void update(int id , Customer customer) {
-		Customer c = new Customer(customer.getFirstName(),customer.getLastName(),customer.getEmail());
+	public void update(Customer customer) {
 		session.getTransaction().begin();
-		session.merge(c);
+		session.merge(customer);
 		session.getTransaction().commit();
 
 	}

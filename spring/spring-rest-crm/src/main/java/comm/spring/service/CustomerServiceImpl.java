@@ -34,8 +34,8 @@ public class CustomerServiceImpl implements CustomerService{
 		return c;
 	}
 	
-	public void update(int id , Customer customer) {
-		dao.update(id, customer);
+	public void update(Customer customer) {
+		dao.update(customer);
 
 	}
 
