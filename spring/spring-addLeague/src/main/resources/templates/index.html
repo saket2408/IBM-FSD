@@ -18,18 +18,35 @@
 <body>
 <h1>League Repository</h1><br><hr>
 <a th:href="@{/league/addForm}" class="btn btn-info" role="button">Add new League</a>
-<br><br><hr>
+
+<form action="#" th:action="@{/league/searchLeague}" method="post" style="float:right">
+      	   <input type="text" name="search" placeholder="search" >
+      	   <button type="submit" class="btn btn-warning">search</button>
+      	</form>
+      	<br><br>
+<hr>
  <table class="table table-striped ">
       <thead class="table table-dark"><tr>
         <th>Title</th>
         <th>Season</th>
         <th>year</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tr th:each="league : ${list}">
       <td th:text="${league.title}"></td>
       <td th:text="${league.season}"></td>
       <td th:text="${league.year}"></td>
+      <td>
+      	<form action="#" th:action="@{/league/deleteLeague}" method="post">
+      	   <input type="hidden" name="id" th:value="${league.id}" >
+      	   <button type="submit" class="btn btn-danger" onclick="alert('are you sure?')">delete</button>
+      	</form>
+      	<form action="#" th:action="@{/league/updateLeague}" method="post">
+      	   <input type="hidden" name="id" th:value="${league.id}" >
+      	   <button type="submit" class="btn btn-warning">update</button>
+      	</form>
+      </td>
      </tr>
      </table>
 
