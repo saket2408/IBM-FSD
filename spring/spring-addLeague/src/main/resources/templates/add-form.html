@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>League Repository</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>League Repository</h1>
+<br><br><hr>
+ <form action="#" th:action="@{/league/add}" th:object="${league}" method="post">
+  <div class="form-group">
+   <input type="text" th:field="*{title}" class="form-control mb-4 col-4" placeholder="Title of league">
+  </div>
+  <div class="form-group">
+    <select th:field="*{season}" >
+    		<option th:each="s : ${season}" th:value="${s}" th:text="${s}"></option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="number" th:field="*{year}" class="form-control mb-4 col-4" placeholder="year">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<hr>
+<a th:href="@{/league/list}" class="btn btn-info" role="button">back to repository</a>
+
+</body>
+</html>
