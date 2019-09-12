@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Recipe Repository</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Recipe Repository</h1><br><hr>
+<a th:href="@{/}" class="btn btn-default" >Back to home</a><br><br>
+
+ <div class="card ">
+  <div class="card-header bg-info text-white" th:text="${reciepe.name}"></div>
+  <div class="card-body">
+  <b>Difficulty</b>
+  	<ul>
+  	  <li th:text="${reciepe.difficulty}"></li>
+  	</ul>
+  	 <b>Preparation Time</b>
+  	<ul>
+  	  <li th:text="${reciepe.prepTime}"></li>
+  	</ul>
+  	 <b>Description</b>
+  	<ul>
+  	  <li th:text="${reciepe.description}"></li>
+  	</ul>
+  	 <b>Cook Time</b>
+  	<ul>
+  	  <li th:text="${reciepe.cookTime}"></li>
+  	</ul>
+  	 <b>Serving</b>
+  	<ul>
+  	  <li th:text="${reciepe.serving}"></li>
+  	</ul>
+  	
+  	<b>Source</b>
+  	<ul>
+  	  <li th:text="${reciepe.source}"></li>
+  	</ul>
+  	
+  	<b>URL</b>
+  	<ul>
+  	  <li th:text="${reciepe.url}"></li>
+  	</ul>
+  </div> 
+ 
+</div>
+<hr>
+<div class="card ">
+  <div class="card-header bg-info text-white" >Ingredients</div>
+  <div class="card-body">
+	<ul th:each="ingredient : ${ingredient}">
+	<li ><span th:text="${ingredient.amount}"></span>, <span th:text="${ingredient.description}"></span></li>	
+	</ul>
+  </div>
+  </div>
+<hr>
+<div class="card ">
+  <div class="card-header bg-info text-white" >**NOTE**</div>
+  <div class="card-body" th:text="${note.reciepeNote}">
+
+  </div> 
+ 
+</div>
+</body>
+</html>
