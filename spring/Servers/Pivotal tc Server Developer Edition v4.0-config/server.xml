@@ -16,7 +16,7 @@
             </Realm>
             <Host appBase="webapps" autoDeploy="true" deployOnStartup="true" deployXML="true" name="localhost" unpackWARs="true">
                 <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
-            <Context docBase="spring-mvc-demo" path="/spring-mvc-demo" reloadable="true" source="org.eclipse.jst.j2ee.server:spring-mvc-demo"/><Context docBase="springmvc-hibernate-customer" path="/springmvc-hibernate-customer" reloadable="true" source="org.eclipse.jst.j2ee.server:springmvc-hibernate-customer"/><Context docBase="spring-rest-crm" path="/spring-rest-crm" reloadable="true" source="org.eclipse.jst.j2ee.server:spring-rest-crm"/></Host>
+            <Context docBase="spring-mvc-demo" path="/spring-mvc-demo" reloadable="true" source="org.eclipse.jst.j2ee.server:spring-mvc-demo"/><Context docBase="springmvc-hibernate-customer" path="/springmvc-hibernate-customer" reloadable="true" source="org.eclipse.jst.j2ee.server:springmvc-hibernate-customer"/><Context docBase="spring-rest-crm" path="/spring-rest-crm" reloadable="true" source="org.eclipse.jst.j2ee.server:spring-rest-crm"/><Context docBase="simple-security" path="/simple-security" reloadable="true" source="org.eclipse.jst.j2ee.server:simple-security"/></Host>
         </Engine>
         <Connector acceptCount="100" connectionTimeout="20000" executor="tomcatThreadPool" maxKeepAliveRequests="15" port="${nio.http.port}" protocol="org.apache.coyote.http11.Http11NioProtocol" redirectPort="${nio.https.port}"/>
     </Service>
