@@ -289,7 +289,7 @@ to {
 				<c:if test="${param.error != null}">
 
 									<div class="alert alert-danger col-xs-offset-1 col-xs-10">
-										Invalid username and password.
+										Invalid username or password.
 									</div>					
 				</c:if>
 				<c:if test="${param.logout != null}">

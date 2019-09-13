@@ -17,9 +17,12 @@
 </head>
 <body>
 <h1>League Repository</h1><br><hr>
+<form action="#" th:action="@{/logout}">
+<input type="submit" value="log out"> 
+</form>
 <a th:href="@{/league/addForm}" class="btn btn-info" role="button">Add new League</a>
 
-<form action="#" th:action="@{/league/searchLeague}" method="post" style="float:right">
+<form action="#" th:action="@{/searchLeague}" method="post" style="float:right">
       	   <input type="text" name="search" placeholder="search" >
       	   <button type="submit" class="btn btn-warning">search</button>
       	</form>

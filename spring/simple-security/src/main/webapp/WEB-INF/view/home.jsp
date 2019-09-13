@@ -12,7 +12,7 @@
 </head>
 <body>
 
-tfghgdhwiehiehfhreghuhureuie
+<h1>tfghgdhwiehiehfhreghuhureuie</h1>
 <form:form action="${pageContext.request.contextPath}/logout" 
 			   method="POST">
 	
