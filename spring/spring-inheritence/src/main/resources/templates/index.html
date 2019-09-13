@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Repository</h1> <br><br><hr>
+<div>
+<a th:href="@{/addForm}">ADD EMPLOYEE</a>
+<br><br>
+<form action="#" th:action="@{/criteria}" method="post">
+<select name="criteria">
+	<option value="employee">Employee</option>
+	<option value="permanent_employee">Permanent Employee</option>
+	<option value="contractual_employee">Contractual Employee</option>
+</select>
+<input type="submit" value="Show">
+</form>
+<form action="#" th:action="@{/logout}" style="float:right">
+<input type="submit" value="log out"> 
+</form>
+</div>
+<br><br><hr>
+
+<div th:if="${employee}">
+<table border=1>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+</tr>
+<tr th:each="employee : ${employee}">
+<td th:text="${employee.firstName}"></td>
+<td th:text="${employee.lastName}"></td>
+<td th:text="${employee.email}"></td>
+</tr>
+</table>
+</div>
+
+
+<div th:if="${permanent_employee}">
+<table border=1>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Salary</th>
+<th>Compensation</th>
+</tr>
+<tr th:each="employee : ${permanent_employee}">
+<td th:text="${employee.firstName}"></td>
+<td th:text="${employee.lastName}"></td>
+<td th:text="${employee.email}"></td>
+<td th:text="${employee.salary}"></td>
+<td th:text="${employee.conpensation}"></td>
+</tr>
+</table>
+</div>
+
+
+<div th:if="${contract_employee}">
+<table border=1>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Pay Per Hour</th>
+<th>Contract Period</th>
+</tr>
+<tr th:each="employee : ${contract_employee}">
+<td th:text="${employee.firstName}"></td>
+<td th:text="${employee.lastName}"></td>
+<td th:text="${employee.email}"></td>
+<td th:text="${employee.payPerHour}"></td>
+<td th:text="${employee.contractPeriod}"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>
