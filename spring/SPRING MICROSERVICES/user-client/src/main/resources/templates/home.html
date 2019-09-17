@@ -4,22 +4,42 @@
 <meta charset="ISO-8859-1">
 <title>all users</title>
 </head>
-<body>
-
+<body><hr>
+<br><br>
+<h2><a th:href="@{/addUser}">Add User</a></h2>
+<form action="#" th:action="@{/search}" method="post" style="float:right">
+      	   <input type="text" name="id" placeholder="search" >
+      	   <button type="submit">search</button>
+      	</form>
+<hr>
 <table border=1>
  <tr>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
-        <th>USer Id</th>
+        <th>User Id</th>
+        <th>Action</th>
       </tr>
    
+   <div th:if="${list}">
       <tr th:each="league : ${list}">
       <td th:text="${league.body.firstName}"></td>
       <td th:text="${league.body.lastName}"></td>
       <td th:text="${league.body.email}"></td>
       <td th:text="${league.body.userId}"></td>
+      <td><a th:href="@{'/delete/' + ${league.body.userId}}">delete</a>&nbsp;<a th:href="@{'/update/' + ${league.body.userId}}">update</a></td>
      </tr>
+     </div>
+     
+     <div th:if="${element}">
+      <tr>
+      <td th:text="${element.body.firstName}"></td>
+      <td th:text="${element.body.lastName}"></td>
+      <td th:text="${element.body.email}"></td>
+      <td th:text="${element.body.userId}"></td>
+      <td><a th:href="@{'/delete/' + ${element.body.userId}}">delete</a>&nbsp;<a th:href="@{'/update/' + ${element.body.userId}}">update</a></td>
+     </tr>
+     </div>
      </table>
 </body>
 </html>

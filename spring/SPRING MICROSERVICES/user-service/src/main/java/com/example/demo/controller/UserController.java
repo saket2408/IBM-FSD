@@ -63,7 +63,8 @@ public class UserController {
 		ModelMapper mapper = new ModelMapper();
 		User user = service.deleteUser(userID);
 		UserResponseModel model = mapper.map(user, UserResponseModel.class);
-		return ResponseEntity.status(HttpStatus.GONE).body(model);	
+		System.out.println(model.getEmail());
+		return ResponseEntity.ok(model);	
 	} 
 	
 	@PutMapping("/users/{id}")
