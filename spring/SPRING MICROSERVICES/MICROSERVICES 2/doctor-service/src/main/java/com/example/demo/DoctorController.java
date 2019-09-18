@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class DoctorController {
 
 	@Autowired
-	DoctorRepository patientRepository;
+	DoctorRepository doctorRepository;
 	
-	@GetMapping("/patients")
+	@GetMapping("/doctors")
 	public ResponseEntity<?> getPatients(){
-		return ResponseEntity.ok(patientRepository.findAll());
+		return ResponseEntity.ok(doctorRepository.findAll());
 	}
 	
-	@GetMapping("/patients/{diseases}")
+	@GetMapping("/doctors/{diseases}")
 	public ResponseEntity<?> getPatientsByDisease(@PathVariable("diseases") String  disease){
-		return ResponseEntity.ok(patientRepository.findByPatientDisease(disease));
+		return ResponseEntity.ok(doctorRepository.findByDoctorSpeciality(disease));
 	}
 	
 	

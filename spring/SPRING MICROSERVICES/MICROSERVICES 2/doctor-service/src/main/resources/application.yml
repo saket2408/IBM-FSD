@@ -7,8 +7,8 @@ spring:
     username: root
     url: jdbc:mysql://localhost:3306/mydb
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: doctor-service
 server:
-  port: ${PORT:${SERVER_PORT:0}}
+  port: 8020
 
-
-  
