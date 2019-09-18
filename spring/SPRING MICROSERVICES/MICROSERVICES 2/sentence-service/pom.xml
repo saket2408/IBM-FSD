@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.test</groupId>
-	<artifactId>lab-7-word-server</artifactId>
+	<artifactId>lab-7-sentence-server-solution</artifactId>
 	<version>1</version>
 	<packaging>jar</packaging>
 
-	<name>lab-7-word-server</name>
-	<description>Example microservice which serves up individual, random words for a give part of speech.</description>
+	<name>lab-7-sentence-server-solution</name>
+	<description>Example microservice which uses Hystrix to isolate the effect of dependent service failures.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -55,8 +55,23 @@
 	        <groupId>org.springframework.cloud</groupId>
 	        <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
 	    </dependency>
-
-		<dependency>
+	
+	    <dependency>
+	        <groupId>org.springframework.cloud</groupId>
+	        <artifactId>spring-cloud-starter-openfeign</artifactId>
+	    </dependency>
+	    
+	    <dependency>
+	        <groupId>org.springframework.cloud</groupId>
+	        <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+	    </dependency>
+	    
+	    <dependency>
+	        <groupId>org.springframework.cloud</groupId>
+	        <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+	    </dependency>
+	    
+	    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -66,10 +81,16 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		
+				
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.9.3</version>
 		</dependency>
 
 		<!-- Allow for automatic restarts when classpath contents change. -->

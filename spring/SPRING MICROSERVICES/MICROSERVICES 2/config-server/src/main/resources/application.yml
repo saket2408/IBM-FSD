@@ -4,6 +4,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/dnilay/java_fsd_2/
+          uri: https://github.com/saket2408/IBM-FSD/
 server:
-  port: 8010
+  port: 8001
