@@ -1,8 +1,8 @@
 <fieldset>
     <legend>Edit details</legend>    
     <form #eidtForm="ngForm" (submit)="edit()">
-        <input type="text" placeholder="Name" name="name" [(ngModel)]="editObj.name" /> <br/>
-        <input type="email" placeholder="email" name="email" [(ngModel)]="editObj.email" /> <br/>
+        <input type="text" placeholder="Name" name="email" [(ngModel)]="editObj.email" /> <br/>
+        <input type="email" placeholder="email" name="password" [(ngModel)]="editObj.password" /> <br/>
         <input type="submit" value="edit" />
     </form>
 </fieldset>   
