@@ -1,5 +1,5 @@
-package CRUD;
 
+package CRUD;
 import java.util.Scanner;
 
 class CRUD {
