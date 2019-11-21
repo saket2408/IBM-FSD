@@ -7,7 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.EnumMap;
 import java.util.Map;
- 
+import java.util.Scanner;
+
 import javax.imageio.ImageIO;
  
 import com.google.zxing.BarcodeFormat;
@@ -16,18 +17,15 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
- 
-/**
- * @author Crunchify.com
- * Updated: 03/20/2016 - added code to narrow border size 
- */
- 
+  
 public class App {
  
 	// Tutorial: http://zxing.github.io/zxing/apidocs/index.html
  
 	public static void main(String[] args) {
-		String myCodeText = "8827089797";
+		Scanner scanner  = new Scanner(System.in);
+		System.out.println("Enter the content you want to convert in QR Code/n");
+		String myCodeText = scanner.nextLine();
 		String filePath = "c:/users/SaketSaxena/Documents/practice workspace/IBM-FSD/java/QRCodeGenerator/images/GeneratedQrCode.png";
 		int size = 250;
 		String fileType = "png";
